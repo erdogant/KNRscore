@@ -1,6 +1,40 @@
 #%% Tests regarding flameplot
+
 import flameplot as flameplot
+from sklearn import (manifold, decomposition)
 import pandas as pd
+import numpy as np
+
+# %% Load data
+X,y=flameplot.import_example()
+
+# %% Make PCA
+X_pca_50 = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+X_pca_2 = decomposition.TruncatedSVD(n_components=2).fit_transform(X)
+# Make tSNE
+X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+# Make random
+X_rand=np.append([np.random.permutation(X_tsne[:,0])],  [np.random.permutation(X_tsne[:,1])], axis=0).reshape(-1,2)
+
+# %% Scatter
+flameplot.scatter(X_pca_2,y, title='PCA')
+flameplot.scatter(X_tsne,y, title='tSNE')
+flameplot.scatter(X_rand,y, title='Random')
+
+# %% Compare PCA(50) vs. tSNE
+scores=flameplot.compare(X_pca_50, X_tsne, n_steps=5)
+# plot
+fig=flameplot.plot(scores, xlabel='PCA (50d)', ylabel='tSNE (2d)')
+
+# Compare PCA(2) vs. tSNE
+scores=flameplot.compare(X_pca_2, X_tsne, n_steps=5)
+# plot
+fig=flameplot.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
+
+# Compare random vs. tSNE
+scores=flameplot.compare(X_rand, X_tsne, n_steps=5)
+# plot
+fig=flameplot.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
 
 #%%
 from sklearn import (manifold, decomposition)

@@ -1,47 +1,70 @@
-""" This function compares low vs. high dimensions/embeddings.
+"""This function compares low vs. high dimensions/embeddings.
 
     scores = flameplot.compare(data1, data2)
 	fig    = flameplot.plot(scores)
     X,y    = flameplot.import_example()
+	fig    = flameplot.scatter(X,y)
 
 
- EXAMPLE
+ Requirements
+ ------------
+   os
+   numpy
+   tqdm
+   scipy
+   imagesc
+   
+   
+ Example
  -------
 
-   from sklearn import (manifold, decomposition)
-   import flameplot as flameplot
+    from sklearn import (manifold, decomposition)
+    import flameplot as flameplot
 
-   # Load data
-   X,y=flameplot.import_example()
+    # Load data
+    X,y=flameplot.import_example()
 
-   # Make PCA
-   X_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+    # Make PCA
+    X_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
 
-   # Make tSNE
-   X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+    # Make tSNE
+    X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 
-   # Compute scores
-   scores=flameplot.compare(X_pca, X_tsne, n_steps=5)
-   
-   # Make the plot
-   fig=flameplot.plot(scores)
+    # Make random
+    X_rand=np.append([np.random.permutation(X_tsne[:,0])],  [np.random.permutation(X_tsne[:,1])], axis=0).reshape(-1,2)
+
+    # Compare PCA vs. tSNE
+    scores=flameplot.compare(X_pca, X_tsne, n_steps=25)
+    # plot PCA vs. tSNE
+    fig=flameplot.plot(scores, xlabel='PCA', ylabel='tSNE')
+
+    # Compare random vs. tSNE
+    scores=flameplot.compare(X_rand, X_tsne, n_steps=25)
+    # plot Random vs. tSNE
+    fig=flameplot.plot(scores, xlabel='Random', ylabel='tSNE')
+
+
+   # Scatter
+   flameplot.scatter_embedding(X_pca,y, title='PCA')
+   flameplot.scatter_embedding(X_tsne,y, title='tSNE')
+   flameplot.scatter_embedding(X_rand,y, title='Random')
 
 """
 
 #--------------------------------------------------------------------------
 # Name        : flameplot.py
 # Author      : Erdogan.Taskesen
-# Licence     : MIT
 # Date        : Jan. 2020
+# Licence     : MIT
 #--------------------------------------------------------------------------
 
 #%% Libraries
+import os
 import numpy as np
+from tqdm import tqdm
 from scipy.spatial.distance import pdist
 from scipy.spatial.distance import squareform
-from tqdm import tqdm
 import imagesc as imagesc
-import os
 
 #%%
 def compare(data1, data2, nn=250, n_steps=5, verbose=3):
@@ -96,7 +119,7 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     return(out)
 
 #%% Plot
-def plot(out, cmap='jet'):
+def plot(out, cmap='jet', xlabel=None, ylabel=None):
     '''
 
     Parameters
@@ -111,9 +134,46 @@ def plot(out, cmap='jet'):
     fig.
 
     '''
-    fig = imagesc.plot(np.flipud(out['scores']), cmap=cmap, row_labels=np.flipud(out['nn']), col_labels=out['nn'], figsize=(20,15), grid=True, vmin=0, vmax=1, linecolor='#0f0f0f', linewidth=0.25)
+    fig = imagesc.plot(np.flipud(out['scores']), 
+                       cmap=cmap, 
+                       row_labels=np.flipud(out['nn']), 
+                       col_labels=out['nn'], 
+                       figsize=(20,15), 
+                       grid=True, 
+                       vmin=0, 
+                       vmax=1, 
+                       linecolor='#0f0f0f', 
+                       linewidth=0.25,
+                       xlabel=xlabel, 
+                       ylabel=ylabel)
     return(fig)
-    
+
+#%% Example data
+def import_example():
+    '''
+
+    Returns
+    -------
+    TYPE
+        No input required.
+
+    Returns
+    -------
+    X,y
+    '''
+    # Local library
+    import pandas as pd
+
+    print('[FLAMEPLOT] Loading digit example..')
+    curpath = os.path.dirname(os.path.abspath( __file__ ))
+    PATH_TO_DATA=os.path.join(curpath,'data','digits.zip')
+    if os.path.isfile(PATH_TO_DATA):
+        df=pd.read_csv(PATH_TO_DATA, sep=',')
+        return (df.values[:,1:], df.values[:,0])
+    else:
+        print('[KM] Oops! Example data not found! Try to get it at: www.github.com/erdogant/flameplot/')
+        return None
+
 #%% Take NN based on the number of samples availble
 def _overlap_comparison(data1Order, data2Order, nn, samples, p):
     out = np.zeros((len(nn),1), dtype='float').ravel()
@@ -143,26 +203,3 @@ def _K_nearestneighbors(data1, data1Dist, K):
         # Store data
         outputOrder.append(I[np.arange(0,np.minimum(K,len(I)))])
     return(outputOrder)
-
-#%% Example data
-def import_example():
-    '''
-
-    Returns
-    -------
-    TYPE
-        No input required.
-
-    Returns
-    -------
-    X,y
-    '''
-    import pandas as pd
-    curpath = os.path.dirname(os.path.abspath( __file__ ))
-    PATH_TO_DATA=os.path.join(curpath,'data','digits.zip')
-    if os.path.isfile(PATH_TO_DATA):
-        df=pd.read_csv(PATH_TO_DATA, sep=',')
-        return (df.values[:,1:], df.values[:,0])
-    else:
-        print('[KM] Oops! Example data not found! Try to get it at: www.github.com/erdogant/flameplot/')
-        return None

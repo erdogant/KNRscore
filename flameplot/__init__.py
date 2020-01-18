@@ -1,7 +1,9 @@
 from flameplot.flameplot import(
-    plot,
     compare,
+    plot,
     import_example)
+
+from flameplot.scatter import scatter
 
 __author__ = 'Erdogan Tasksen'
 __email__ = 'erdogant@gmail.com'
