@@ -27,9 +27,11 @@ Schematic overview to systematically compare local and global differences betwee
 
 ### Functions in flameplot
 ```python
-# data is your numpy array
-fig = flameplot(coord1, coord2)
-status = flameplot.savefig(fig)
+scores = flameplot.compare(map1,map2)
+fig    = flameplot.plot(scores)
+X,y    = flameplot.import_example()
+fig    = flameplot.scatter(X,y)
+
 ```
 
 ## Contents
@@ -70,13 +72,55 @@ import flameplot as flameplot
 ```
 
 #### flameplot
-Comparisons with maps from principal component analysis. (a). PCA projection of the 4,434 patient samples based on the multi-omic data (200D) to 2PCs with highest eigenvalue. The loadings of the PCs are depicted with blue lines. Each patient sample is depicted by a square (male), dot (female), or plus (gender unlabeled), and colored based on one of the 19 cancer-tissues. The density maps are colored according to one of the two cluster labels which are detected as described in Methods section. (b) Comparison of the 2D MO-map using MEREDITH versus 200D PCA map. (c). Comparison of 2D MO-map versus 6D MO-map using MEREDITH. (d) Comparison of the 2D MO-map using MEREDITH versus the 2D PCA map. (e). Comparison of 2D PCA map versus 200D PCA map. All comparison between two maps follow the quantification of local similarity across two maps approach for kxy=250 (the average cancer-tissue group size) as described in Methods section.
+Comparison between two maps follow the quantification of local similarity across two maps approach.
 
 ```python
-# Example here
+# Load libraries
+import flameplot as flameplot
+from sklearn import (manifold, decomposition)
+import pandas as pd
+import numpy as np
+
+# Load example data
+X,y=flameplot.import_example()
+
+# PCA top 50 PCs
+X_pca_50 = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+# PCA top 2 PCs
+X_pca_2 = decomposition.TruncatedSVD(n_components=2).fit_transform(X)
+# tSNE
+X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+# Random
+X_rand=np.append([np.random.permutation(X_tsne[:,0])],  [np.random.permutation(X_tsne[:,1])], axis=0).reshape(-1,2)
+
+# Scatter for illustrations purposes
+flameplot.scatter(X_pca_2,y, title='PCA')
+flameplot.scatter(X_tsne,y, title='tSNE')
+flameplot.scatter(X_rand,y, title='Random')
 ```
 <p align="center">
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/fig.png" width="300" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_pca.png" width="300" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_tsne.png" width="300" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_random.png" width="300" />
+</p>
+
+
+```python
+% Compare PCA(50) vs. tSNE
+scores1=flameplot.compare(X_pca_50, X_tsne, n_steps=5)
+# Compare PCA(2) vs. tSNE
+scores2=flameplot.compare(X_pca_2, X_tsne, n_steps=5)
+# Compare random vs. tSNE
+scores=flameplot.compare(X_rand, X_tsne, n_steps=5)
+# plot
+fig=flameplot.plot(scores1, xlabel='PCA (50d)', ylabel='tSNE (2d)')
+fig=flameplot.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
+fig=flameplot.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
+```
+<p align="center">
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca50_tsne.png" width="300" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca2_tsne.png" width="300" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/random_tsne.png" width="300" />
 </p>
 
 
