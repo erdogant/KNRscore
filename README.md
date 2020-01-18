@@ -14,7 +14,7 @@ To compare the embedding of samples in two different maps, we propose a scale de
 </p>
 where the variable n is the total number of samples, and the indicator function is given by (eq. 2)
 <p align="center">
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/eq2.png" width="200" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/eq2.png" width="250" />
 </p>
 The score sx,y(kx, ky) will have value 1 if, for each sample, all kx nearest neighbours in map X are also the ky nearest neighbours in map Y, or vice versa. Note that a local neighborhood of samples can be set on the minimum number of samples in the class. Alternatively, kxy can be also set on the average class size.
 
