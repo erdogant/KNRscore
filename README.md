@@ -122,7 +122,7 @@ The comparison between the top 50D of PCA vs. 2D tSNE resulted in high similarit
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca50_tsne.png" width="600" />
 </p>
 
-The comparison between the top 2D of PCA vs. 2D tSNE resulted in high similarities but less then the 50D on local and global scales. The axis are the number of "neirest neighbors" (nn). What we see is that on local scales (low nn) high similarity is seen between the maps but also in higher scales.
+The comparison between the top 2D of PCA vs. 2D tSNE resulted in much lower similarities compared to the 50D on local and global scales. What we see is that on local scales (low nn) there is low similarity which indidactes that local samples are not similar. On larger scale it becomes a bit more greenish and more similarities are seen.
 <p align="center">
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca2_tsne.png" width="600" />
 </p>
