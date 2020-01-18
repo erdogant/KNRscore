@@ -104,7 +104,7 @@ flameplot.scatter(X_rand,y, title='Random')
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_random.png" width="300" />
 </p>
 
-
+Now we have the coordinates and can make the comparison and plot!
 ```python
 % Compare PCA(50) vs. tSNE
 scores1=flameplot.compare(X_pca_50, X_tsne, n_steps=5)
