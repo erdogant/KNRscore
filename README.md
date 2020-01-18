@@ -99,9 +99,9 @@ flameplot.scatter(X_tsne,y, title='tSNE')
 flameplot.scatter(X_rand,y, title='Random')
 ```
 <p align="center">
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_pca.png" width="300" />
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_tsne.png" width="300" />
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_random.png" width="300" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_pca.png" width="600" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_tsne.png" width="600" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_random.png" width="600" />
 </p>
 
 Now we have the coordinates and can make the comparison and plot!
@@ -118,9 +118,9 @@ fig=flameplot.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
 fig=flameplot.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
 ```
 <p align="center">
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca50_tsne.png" width="300" />
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca2_tsne.png" width="300" />
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/random_tsne.png" width="300" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca50_tsne.png" width="600" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca2_tsne.png" width="600" />
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/random_tsne.png" width="600" />
 </p>
 
 
