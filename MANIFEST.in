@@ -1,0 +1,5 @@
+#include versioneer.py
+#include flameplot/_version.py
+
+include flameplot/data/*.zip
+include flameplot/data/*.txt
