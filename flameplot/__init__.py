@@ -1,4 +1,7 @@
-import flameplot.flameplot as flameplot
+from flameplot.flameplot import(
+    plot,
+    compare,
+    import_example)
 
 __author__ = 'Erdogan Tasksen'
 __email__ = 'erdogant@gmail.com'
