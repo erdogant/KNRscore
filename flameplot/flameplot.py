@@ -3,7 +3,7 @@
     scores = flameplot.compare(data1, data2)
 	fig    = flameplot.plot(scores)
     X,y    = flameplot.import_example()
-	fig    = flameplot.scatter(X,y)
+	fig    = flameplot.scatterd(X[:,0],X[:,1],y)
 
 
  Requirements
@@ -43,11 +43,10 @@
     # plot Random vs. tSNE
     fig=flameplot.plot(scores, xlabel='Random', ylabel='tSNE')
 
-
-   # Scatter
-   flameplot.scatter_embedding(X_pca,y, title='PCA')
-   flameplot.scatter_embedding(X_tsne,y, title='tSNE')
-   flameplot.scatter_embedding(X_rand,y, title='Random')
+    # Scatter
+    flameplot.scatterd(X_pca[:,0], X_pca[:,1] ,y, title='PCA')
+    flameplot.scatterd(X_tsne[:,0], X_tsne[:,1], y, title='tSNE')
+    flameplot.scatterd(X_rand[:,0], X_rand[:,1], y, title='Random')
 
 """
 

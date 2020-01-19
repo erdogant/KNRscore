@@ -5,9 +5,10 @@
    numpy
    matplotlib
    colormap
+   scatterd
  
 
- Name        : scatter.py
+ Name        : scatterd.py
  Author      : E.Taskesen
  Contact     : erdogant@gmail.com
  Date        : Jan. 2020
@@ -22,18 +23,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #%% Main
-def scatter(X, y=None, norm=True, cmap='Set1', xlabel=None, ylabel=None, title=None, figsize=(15,10)):
+def scatterd(Xcoord, Ycoord, s=15, c=[0,0,0], label=None, norm=False, cmap='Set1', xlabel=None, ylabel=None, title=None, fontsize=16, figsize=(15,10)):
     '''
     
 
     Parameters
     ----------
-    X : numpy array
-        2D Coordinates.
-    y : list of labels with same size as X
+    Xcoord : numpy array
+        1D Coordinates.
+    Ycoord : numpy array
+        1D Coordinates.
+    label: list of labels with same size as Xcoord
         label of the samples.
+    s: Int or list/array of sizes with same size as Xcoord
+        Size of the samples.
+    c: list/array of RGB colors with same size as Xcoord
+        Color of samples in RGB colors.
     cmap : String, optional
-        Colormap > https://matplotlib.org/examples/color/colormaps_reference.html
         'Set1'       (default)     
         'Set2'       
         'rainbow'
@@ -44,8 +50,7 @@ def scatter(X, y=None, norm=True, cmap='Set1', xlabel=None, ylabel=None, title=N
         'Reds'       white-to-red
         'Pastel1'    Discrete colors
         'Paired'     Discrete colors
-        'Set1'       Discrete colors    xlabel : TYPE, optional
-        DESCRIPTION. The default is None.
+        'Set1'       Discrete colors    
     xlabel : String, optional
         Xlabel. The default is None.
     ylabel : String, optional
@@ -56,6 +61,14 @@ def scatter(X, y=None, norm=True, cmap='Set1', xlabel=None, ylabel=None, title=N
         Normalize datapoints. The default is True.
     figsize : tuple, optional
         Figure size. The default is (15,10).
+    fontsize : String, optional
+        The fontsize of the y labels that are plotted in the graph. The default is 16.
+
+
+    References
+    -------
+    Colormap: https://matplotlib.org/examples/color/colormaps_reference.html
+
 
     Returns
     -------
@@ -63,39 +76,45 @@ def scatter(X, y=None, norm=True, cmap='Set1', xlabel=None, ylabel=None, title=N
 
 
     '''
-    assert X.shape[0]==len(y), print('[SCATTER] Error. X should have same length as y.')
+    assert len(Xcoord)==len(Ycoord), print('[SCATTERD] Error. Xcoord should have same length as Ycoord.')
+    assert s is not None, print('[SCATTERD] Error. s(ize) should be not None')
+    assert c is not None, print('[SCATTERD] Error. c(olors) should be not None')
+    if not isinstance(s, int):
+        assert len(s)==len(Xcoord), print('[SCATTERD] Error. s should be of same size of Xcoord')
+
     args=dict()
     args['norm']=norm
     args['cmap']=cmap
     args['xlabel']=xlabel
     args['ylabel']=ylabel
     args['title']=title
+    args['fontsize']=fontsize
     args['figsize']=figsize
-    
+    # Color of the axis and grid of the plot
     axiscolor='#dddddd'
 
-    # Take only the first two dimensions
-    X=X[:,0:2]
+    # Combine into array
+    X=np.c_[Xcoord,Ycoord]
 
     # Normalize data
     if args['norm']:
         x_min, x_max = np.min(X, 0), np.max(X, 0)
         X = (X - x_min) / (x_max - x_min)
     
-    # Create unqiue colors for y
-    if y is not None:
-        getcolors,colordict=colormap.fromlist(y, cmap=args['cmap'], method='matplotlib')
+    # Create unqiue colors for label
+    if label is not None:
+        c,cdict=colormap.fromlist(label, cmap=args['cmap'], method='matplotlib')
 
     # Boot figure
     fig, ax = plt.subplots(figsize=args['figsize'])
     # Scatter
-    ax.scatter(X[:,0],X[:,1], facecolor=getcolors, s=15, edgecolor='None')
+    ax.scatter(X[:,0],X[:,1], facecolor=c, s=s, edgecolor='None')
 
     # Plot labels
-    if y is not None:
-        for uiy in colordict.keys():
-            XYmean=np.mean(X[y==uiy,:], axis=0)
-            plt.text(XYmean[0],XYmean[1], str(uiy), color=colordict.get(uiy), fontdict={'weight': 'bold', 'size': 16})
+    if label is not None:
+        for uilabel in cdict.keys():
+            XYmean=np.mean(X[label==uilabel,:], axis=0)
+            plt.text(XYmean[0],XYmean[1], str(uilabel), color=cdict.get(uilabel), fontdict={'weight': 'bold', 'size': args['fontsize']})
 
     # Labels on axis
     ax.set_xlabel(args['xlabel'])
