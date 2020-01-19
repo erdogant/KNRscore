@@ -73,10 +73,8 @@ import flameplot as flameplot
 
 #### flameplot
 Comparison between two maps follow the quantification of local similarity approach.
-
 ```python
 # Load libraries
-import flameplot as flameplot
 from sklearn import (manifold, decomposition)
 import pandas as pd
 import numpy as np
@@ -92,8 +90,11 @@ X_pca_2 = decomposition.TruncatedSVD(n_components=2).fit_transform(X)
 X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 # Random
 X_rand=np.c_[np.random.permutation(X_tsne[:,0]), np.random.permutation(X_tsne[:,1])]
+```
 
-# Scatter for illustrations purposes
+Scatter for illustrations purposes
+```python
+import flameplot as flameplot
 flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], label=y, title='PCA')
 flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  label=y, title='tSNE')
 flameplot.scatter(X_rand[:,0],  X_rand[:,1],  label=y, title='Random')
