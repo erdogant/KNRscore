@@ -100,9 +100,9 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     data2 : numpy array
         Mapping of second embedding.
     nn : integer, optional
-        number of neirest neighbor. The default is 250.
+        number of neirest neighbor. This can be set based on the smalles class size or the aveage class size. The default is 250.
     n_steps : integer
-        evaluation steps, optional. The default is 5.
+        evaluation steps, optional. If higher, the resolution becomes lower and vice versa. The default is 5.
     verbose : integer, optional
         print messages. The default is 3.
 
