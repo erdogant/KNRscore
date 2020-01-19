@@ -107,7 +107,7 @@ flameplot.scatter(X_rand[:,0],  X_rand[:,1],  label=y, title='Random')
 
 Now we have the coordinates and can make the comparison and plot!
 ```python
-% Compare PCA(50) vs. tSNE
+# Compare PCA(50) vs. tSNE
 scores1=flameplot.compare(X_pca_50, X_tsne, n_steps=5)
 # Compare PCA(2) vs. tSNE
 scores2=flameplot.compare(X_pca_2, X_tsne, n_steps=5)
