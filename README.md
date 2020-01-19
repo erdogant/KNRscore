@@ -30,7 +30,7 @@ Schematic overview to systematically compare local and global differences betwee
 scores = flameplot.compare(map1,map2)
 fig    = flameplot.plot(scores)
 X,y    = flameplot.import_example()
-fig    = flameplot.scatterd(X,y)
+fig    = flameplot.scatterd(Xcoord,Ycoord)
 
 ```
 
