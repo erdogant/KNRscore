@@ -30,7 +30,7 @@ Schematic overview to systematically compare local and global differences betwee
 scores = flameplot.compare(map1,map2)
 fig    = flameplot.plot(scores)
 X,y    = flameplot.import_example()
-fig    = flameplot.scatterd(Xcoord,Ycoord)
+fig    = flameplot.scatter(Xcoord,Ycoord)
 
 ```
 
@@ -94,9 +94,9 @@ X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 X_rand=np.c_[np.random.permutation(X_tsne[:,0]), np.random.permutation(X_tsne[:,1])]
 
 # Scatter for illustrations purposes
-flameplot.scatterd(X_pca_2[:,0], X_pca_2[:,1], label=y, title='PCA')
-flameplot.scatterd(X_tsne[:,0],  X_tsne[:,1],  label=y, title='tSNE')
-flameplot.scatterd(X_rand[:,0],  X_rand[:,1],  label=y, title='Random')
+flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], label=y, title='PCA')
+flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  label=y, title='tSNE')
+flameplot.scatter(X_rand[:,0],  X_rand[:,1],  label=y, title='Random')
 ```
 <p align="center">
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_pca.png" width="600" />
