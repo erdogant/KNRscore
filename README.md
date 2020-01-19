@@ -91,7 +91,7 @@ X_pca_2 = decomposition.TruncatedSVD(n_components=2).fit_transform(X)
 # tSNE
 X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 # Random
-X_rand=np.append([np.random.permutation(X_tsne[:,0])],  [np.random.permutation(X_tsne[:,1])], axis=0).reshape(-1,2)
+X_rand=np.c_[np.random.permutation(X_tsne[:,0]), np.random.permutation(X_tsne[:,1])]
 
 # Scatter for illustrations purposes
 flameplot.scatterd(X_pca_2[:,0], X_pca_2[:,1] ,y, title='PCA')
