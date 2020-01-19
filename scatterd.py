@@ -4,9 +4,8 @@
  ------------
    numpy
    matplotlib
-   colormap
-   scatterd
- 
+   colourmap
+    
 
  Name        : scatterd.py
  Author      : E.Taskesen
@@ -17,7 +16,7 @@
 '''
 
 #%% Libraries
-import flameplot.colormap as colormap
+import colourmap as colourmap
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -103,7 +102,7 @@ def scatterd(Xcoord, Ycoord, s=15, c=[0,0,0], label=None, norm=False, cmap='Set1
     
     # Create unqiue colors for label
     if label is not None:
-        c,cdict=colormap.fromlist(label, cmap=args['cmap'], method='matplotlib')
+        c,cdict=colourmap.fromlist(label, cmap=args['cmap'], method='matplotlib')
 
     # Boot figure
     fig, ax = plt.subplots(figsize=args['figsize'])
