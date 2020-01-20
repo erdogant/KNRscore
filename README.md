@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/pypi/pyversions/flameplot)](https://img.shields.io/pypi/pyversions/flameplot)
 [![PyPI Version](https://img.shields.io/pypi/v/flameplot)](https://pypi.org/project/flameplot/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/flameplot/blob/master/LICENSE)
-[![Downloads](https://pepy.tech/badge/flameplot/week)](https://pepy.tech/project/flameplot/week)
+[![Downloads](https://pepy.tech/badge/flameplot)](https://pepy.tech/project/flameplot)
 
 * Quantification of local similarity across two maps/embeddings. 
 
