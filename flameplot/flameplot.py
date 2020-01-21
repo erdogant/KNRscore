@@ -3,7 +3,7 @@
     scores = flameplot.compare(data1, data2)
     fig    = flameplot.plot(scores)
     X,y    = flameplot.import_example()
-    fig    = flameplot.scatterd(X[:,0],X[:,1],y)
+    fig    = flameplot.scatterd(X[:,0],X[:,1],labels=y)
 
 
  Requirements
