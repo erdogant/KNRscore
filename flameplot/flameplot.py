@@ -1,5 +1,7 @@
 """Comparing low vs. high dimensions/embeddings.
 
+    import flameplot as flameplot
+
     scores = flameplot.compare(data1, data2)
     fig    = flameplot.plot(scores)
     X,y    = flameplot.import_example()
@@ -37,7 +39,7 @@
     # Compare PCA vs. tSNE
     scores=flameplot.compare(X_pca, X_tsne, n_steps=25)
     # plot PCA vs. tSNE
-    fig=flameplot.plot(scores, xlabel='PCA', ylabel='tSNE')
+    fig=flameplot.plot(scores, xlabel='PCA', ylabel='tSNE', reverse_cmap=True)
 
     # Compare random vs. tSNE
     scores=flameplot.compare(X_rand, X_tsne, n_steps=25)
