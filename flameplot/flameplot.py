@@ -3,7 +3,7 @@
     scores = flameplot.compare(data1, data2)
     fig    = flameplot.plot(scores)
     X,y    = flameplot.import_example()
-    fig    = flameplot.scatterd(X[:,0],X[:,1],labels=y)
+    fig    = flameplot.scatterd(X[:,0],X[:,1],label=y)
 
 
  Requirements
@@ -67,6 +67,7 @@ from scipy.spatial.distance import squareform
 import imagesc as imagesc
 from scatterd import scatterd
 
+
 # %% Scatter
 def scatter(Xcoord,Ycoord,**args):
     """Scatterplot.
@@ -89,6 +90,7 @@ def scatter(Xcoord,Ycoord,**args):
     fig = scatterd(Xcoord, Ycoord,**args)
     return(fig)
 
+
 # %%
 def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     """
@@ -97,12 +99,16 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     ----------
     data1 : numpy array
         Mapping of first embedding.
+
     data2 : numpy array
         Mapping of second embedding.
+
     nn : integer, optional
-        number of neirest neighbor. This can be set based on the smalles class size or the aveage class size. The default is 250.
+        number of neirest neighbor to compare between the two maps. This can be set based on the smalles class size or the aveage class size. The default is 250.
+
     n_steps : integer
-        evaluation steps, optional. If higher, the resolution becomes lower and vice versa. The default is 5.
+        The number of evaluation steps until reaching nn, optional. If higher, the resolution becomes lower and vice versa. The default is 5.
+
     verbose : integer, optional
         print messages. The default is 3.
 
@@ -141,8 +147,9 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     out['n_steps'] = args['n_steps']
     return(out)
 
+
 # %% Plot
-def plot(out, cmap='jet', xlabel=None, ylabel=None):
+def plot(out, cmap='jet', xlabel=None, ylabel=None, reverse_cmap=False):
     """Make plot.
 
     Parameters
@@ -157,6 +164,9 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None):
     fig.
 
     """
+    if reverse_cmap:
+        cmap=cmap+'_r'
+        
     fig = imagesc.plot(np.flipud(out['scores']),
                        cmap=cmap,
                        row_labels=np.flipud(out['nn']),
@@ -170,6 +180,7 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None):
                        xlabel=xlabel,
                        ylabel=ylabel)
     return(fig)
+
 
 # %% Example data
 def import_example():
@@ -196,6 +207,7 @@ def import_example():
     else:
         print('[KM] Oops! Example data not found! Try to get it at: www.github.com/erdogant/flameplot/')
         return None
+
 
 # %% Take NN based on the number of samples availble
 def _overlap_comparison(data1Order, data2Order, nn, samples, p):
