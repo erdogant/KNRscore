@@ -4,6 +4,7 @@
 [![PyPI Version](https://img.shields.io/pypi/v/flameplot)](https://pypi.org/project/flameplot/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/flameplot/blob/master/LICENSE)
 [![Downloads](https://pepy.tech/badge/flameplot/week)](https://pepy.tech/project/flameplot/week)
+[![Donate Bitcoin](https://img.shields.io/badge/donate-orange.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)
 
 * Quantification of local similarity across two maps/embeddings. 
 
@@ -153,3 +154,6 @@ Please cite flameplot in your publications if this is useful for your research. 
 
 ## Licence
 See [LICENSE](LICENSE) for details.
+
+### Donation
+* This work is created and maintained in my free time. If this package is usefull to you and if want to see more like this, you can show your <a href="https://erdogant.github.io/donate/?currency=USD&amount=5">gratitude</a> :) Thanks!
