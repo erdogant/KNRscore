@@ -151,6 +151,7 @@ Please cite flameplot in your publications if this is useful for your research. 
 
 ## References
 * https://static-content.springer.com/esm/art%3A10.1038%2Fsrep24949/MediaObjects/41598_2016_BFsrep24949_MOESM12_ESM.pdf
+* https://www.nature.com/articles/srep24949
 
 ## Licence
 See [LICENSE](LICENSE) for details.
