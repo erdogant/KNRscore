@@ -1,10 +1,14 @@
-# flameplot
+# Flameplot
 
 [![Python](https://img.shields.io/pypi/pyversions/flameplot)](https://img.shields.io/pypi/pyversions/flameplot)
 [![PyPI Version](https://img.shields.io/pypi/v/flameplot)](https://pypi.org/project/flameplot/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/flameplot/blob/master/LICENSE)
-[![Downloads](https://pepy.tech/badge/flameplot/week)](https://pepy.tech/project/flameplot/week)
-[![Donate](https://img.shields.io/badge/donate-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)
+[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)
+[![Github Forks](https://img.shields.io/github/forks/erdogant/flameplot.svg)](https://github.com/erdogant/flameplot/network)
+[![GitHub Open Issues](https://img.shields.io/github/issues/erdogant/flameplot.svg)](https://github.com/erdogant/flameplot/issues)
+[![Project Status](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Downloads](https://pepy.tech/badge/flameplot/month)](https://pepy.tech/project/flameplot/)
+[![Downloads](https://pepy.tech/badge/flameplot)](https://pepy.tech/project/flameplot)
 
 * Quantification of local similarity across two maps/embeddings. 
 
@@ -34,26 +38,9 @@ X,y    = flameplot.import_example()
 fig    = flameplot.scatter(Xcoord,Ycoord)
 
 ```
-
-## Contents
-- [Installation](#-installation)
-- [Requirements](#-Requirements)
-- [Quick Start](#-quick-start)
-- [Contribute](#-contribute)
-- [Citation](#-citation)
-- [Maintainers](#-maintainers)
-- [License](#-copyright)
-
 ## Installation
 * Install flameplot from PyPI (recommended). flameplot is compatible with Python 3.6+ and runs on Linux, MacOS X and Windows. 
 * It is distributed under the MIT license.
-
-## Requirements
-```python
-pip install numpy matplotlib
-or
-pip install -r requirements.txt
-```
 
 ## Quick Start
 ```
@@ -146,15 +133,11 @@ Please cite flameplot in your publications if this is useful for your research. 
 ```
 * Taskesen, E. et al. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. Sci. Rep. 6, 24949
 
-## Maintainers
-* Erdogan Taskesen, github: [erdogant](https://github.com/erdogant)
-
 ## References
 * https://static-content.springer.com/esm/art%3A10.1038%2Fsrep24949/MediaObjects/41598_2016_BFsrep24949_MOESM12_ESM.pdf
 * https://www.nature.com/articles/srep24949
 
-## Licence
-See [LICENSE](LICENSE) for details.
-
-### Donation
-* This work is created and maintained in my free time. If you wish to buy me a <a href="https://erdogant.github.io/donate/?currency=USD&amount=5">Coffee</a> for this work, it is very appreciated.
+### Maintainer
+* Erdogan Taskesen, github: [erdogant](https://github.com/erdogant)
+* Contributions are welcome.
+* If you wish to buy me a <a href="https://erdogant.github.io/donate/?currency=USD&amount=5">Coffee</a> for this work, it is very appreciated :)
