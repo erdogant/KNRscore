@@ -3,6 +3,7 @@ from flameplot.flameplot import(
     plot,
     import_example,
     scatter,
+    wget,
     )
 
 __author__ = 'Erdogan Tasksen'

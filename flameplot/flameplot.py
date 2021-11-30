@@ -1,58 +1,4 @@
-"""Comparing low vs. high dimensions/embeddings.
-
-Description
------------
-import flameplot as flameplot
-
-scores = flameplot.compare(data1, data2)
-fig    = flameplot.plot(scores)
-X,y    = flameplot.import_example()
-fig    = flameplot.scatterd(X[:,0],X[:,1],label=y)
-
-
-Requirements
-------------
-os
-numpy
-tqdm
-scipy
-imagesc
-scatterd
-
-
-Example
--------
-from sklearn import (manifold, decomposition)
-import flameplot as flameplot
-
-# Load data
-X,y=flameplot.import_example()
-
-# Make PCA
-X_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
-
-# Make tSNE
-X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
-
-# Make random
-X_rand=np.append([np.random.permutation(X_tsne[:,0])],  [np.random.permutation(X_tsne[:,1])], axis=0).reshape(-1,2)
-
-# Compare PCA vs. tSNE
-scores=flameplot.compare(X_pca, X_tsne, n_steps=25)
-# plot PCA vs. tSNE
-fig=flameplot.plot(scores, xlabel='PCA', ylabel='tSNE', reverse_cmap=True)
-
-# Compare random vs. tSNE
-scores=flameplot.compare(X_rand, X_tsne, n_steps=25)
-# plot Random vs. tSNE
-fig=flameplot.plot(scores, xlabel='Random', ylabel='tSNE')
-
-# Scatter
-flameplot.scatter(X_pca[:,0], X_pca[:,1] ,y, title='PCA')
-flameplot.scatter(X_tsne[:,0], X_tsne[:,1], y, title='tSNE')
-flameplot.scatter(X_rand[:,0], X_rand[:,1], y, title='Random')
-
-"""
+"""Comparing low vs. high dimensions/embeddings."""
 
 # -------------------------------
 # Name        : flameplot.py
@@ -69,6 +15,9 @@ from scipy.spatial.distance import squareform
 import imagesc as imagesc
 from scatterd import scatterd
 
+from urllib.parse import urlparse
+import pandas as pd
+import requests
 
 # %% Scatter
 def scatter(Xcoord,Ycoord,**args):
@@ -184,33 +133,6 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None, reverse_cmap=False):
     return(fig)
 
 
-# %% Example data
-def import_example():
-    """Load digit example dataset.
-
-    Returns
-    -------
-    TYPE
-        No input required.
-
-    Returns
-    -------
-    X,y
-    """
-    # Local library
-    import pandas as pd
-
-    print('[FLAMEPLOT] Loading digit example..')
-    curpath = os.path.dirname(os.path.abspath(__file__))
-    PATH_TO_DATA = os.path.join(curpath, 'data', 'digits.zip')
-    if os.path.isfile(PATH_TO_DATA):
-        df = pd.read_csv(PATH_TO_DATA, sep=',')
-        return (df.values[:, 1:], df.values[:, 0])
-    else:
-        print('[KM] Oops! Example data not found! Try to get it at: www.github.com/erdogant/flameplot/')
-        return None
-
-
 # %% Take NN based on the number of samples availble
 def _overlap_comparison(data1Order, data2Order, nn, samples, p):
 
@@ -242,3 +164,92 @@ def _K_nearestneighbors(data1Dist, K):
         # Store data
         outputOrder.append(I[np.arange(0, np.minimum(K, len(I)))])
     return(outputOrder)
+
+
+# %% Example data
+# def import_example():
+#     """Load digit example dataset.
+
+#     Returns
+#     -------
+#     TYPE
+#         No input required.
+
+#     Returns
+#     -------
+#     X,y
+#     """
+#     # Local library
+#     import pandas as pd
+
+#     print('[FLAMEPLOT] Loading digit example..')
+#     curpath = os.path.dirname(os.path.abspath(__file__))
+#     PATH_TO_DATA = os.path.join(curpath, 'data', 'digits.zip')
+#     if os.path.isfile(PATH_TO_DATA):
+#         df = pd.read_csv(PATH_TO_DATA, sep=',')
+#         return (df.values[:, 1:], df.values[:, 0])
+#     else:
+#         print('[KM] Oops! Example data not found! Try to get it at: www.github.com/erdogant/flameplot/')
+#         return None
+
+# %% Import example dataset from github.
+def import_example(data='digits', url=None, sep=','):
+    """Import example dataset from github source.
+
+    Description
+    -----------
+    Import one of the few datasets from github source or specify your own download url link.
+
+    Parameters
+    ----------
+    data : str
+        Name of datasets: 'digits'
+    url : str
+        url link to to dataset.
+    verbose : int, optional
+        Print progress to screen. The default is 3.
+        0: None, 1: ERROR, 2: WARN, 3: INFO (default), 4: DEBUG, 5: TRACE
+
+    Returns
+    -------
+    pd.DataFrame()
+        Dataset containing mixed features.
+
+    """
+    if url is None:
+        if data=='digits':
+            url='https://erdogant.github.io/datasets/digits.zip'
+        else:
+            print('Not a valid name.')
+            return None
+    else:
+        data = wget.filename_from_url(url)
+
+    if url is None:
+        print('Nothing to download.')
+        return None
+
+    curpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
+    filename = os.path.basename(urlparse(url).path)
+    PATH_TO_DATA = os.path.join(curpath, filename)
+    if not os.path.isdir(curpath):
+        os.makedirs(curpath, exist_ok=True)
+
+    # Check file exists.
+    if not os.path.isfile(PATH_TO_DATA):
+        print('Downloading [%s] dataset from github source..' %(data))
+        wget(url, PATH_TO_DATA)
+
+    # Import local dataset
+    print('Import dataset [%s]' %(data))
+    df = pd.read_csv(PATH_TO_DATA, sep=',')
+    # Return
+    return (df.values[:, 1:], df.values[:, 0])
+
+
+# %% Download files from github source
+def wget(url, writepath):
+    r = requests.get(url, stream=True)
+    with open(writepath, "wb") as fd:
+        for chunk in r.iter_content(chunk_size=1024):
+            fd.write(chunk)
