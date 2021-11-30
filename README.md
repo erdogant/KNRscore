@@ -9,6 +9,7 @@
 [![Downloads](https://pepy.tech/badge/flameplot/month)](https://pepy.tech/project/flameplot/)
 [![Downloads](https://pepy.tech/badge/flameplot)](https://pepy.tech/project/flameplot)
 [![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)
+[![DOI](https://zenodo.org/badge/234703853.svg)](https://zenodo.org/badge/latestdoi/234703853)
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
 ### Method
