@@ -1,0 +1,23 @@
+# YAML 1.2
+---
+authors: 
+  -
+    family-names: Taskesen
+    given-names: Erdogan
+    orcid: "https://orcid.org/0000-0002-3430-9618"
+cff-version: "1.1.0"
+date-released: 2020-01-19
+keywords: 
+  - "python"
+  - "embeddings"
+  - "pca"
+  - "tsne"
+  - "dimensionality-reduction"
+  - "umap"
+  - "high-dimensional"
+license: "MIT"
+message: "If you use this software, please cite it using these metadata."
+repository-code: "https://github.com/erdogant/flameplot"
+title: "flameplot is a python package for the quantification of local similarity across two maps or embeddings."
+version: "1.0.0"
+...

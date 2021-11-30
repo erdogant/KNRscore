@@ -17,13 +17,14 @@ setuptools.setup(
      version=new_version,
      author="Erdogan Taskesen",
      author_email="erdogant@gmail.com",
-     description="Quantification of local similarity across two maps/embeddings.",
+     description="flameplot is a python package for the quantification of local similarity across two maps or embeddings.",
      long_description=long_description,
      long_description_content_type="text/markdown",
      url="https://github.com/erdogant/flameplot",
 	 download_url = 'https://github.com/erdogant/flameplot/archive/'+new_version+'.tar.gz',
      packages=setuptools.find_packages(), # Searches throughout all dirs for files to include
      include_package_data=True, # Must be true to include files depicted in MANIFEST.in
+     license_files=["LICENSE"],
      classifiers=[
          "Programming Language :: Python :: 3",
          "License :: OSI Approved :: MIT License",
