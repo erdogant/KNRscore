@@ -120,19 +120,10 @@ The comparison between the Random data points vs. 2D tSNE resulted in low simila
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/random_tsne.png" width="400" />
 </p>
 
-## Citation
-Please cite flameplot in your publications if this is useful for your research. Here is an example BibTeX entry:
-```BibTeX
-@misc{erdogant2019flameplot,
-  title={flameplot},
-  author={Erdogan Taskesen},
-  year={2019},
-  howpublished={\url{https://github.com/erdogant/flameplot}},
-}
-```
-* Taskesen, E. et al. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. Sci. Rep. 6, 24949
+
 
 ## References
+* Taskesen, E. et al. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. Sci. Rep. 6, 24949
 * https://static-content.springer.com/esm/art%3A10.1038%2Fsrep24949/MediaObjects/41598_2016_BFsrep24949_MOESM12_ESM.pdf
 * https://www.nature.com/articles/srep24949
 
