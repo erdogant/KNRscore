@@ -12,7 +12,6 @@
 
 # Flameplot - Comparison of high dimensional embeddings.
 
-# 
 **Star this repo if you like it! ⭐️**
 #
 
