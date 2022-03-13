@@ -5,15 +5,8 @@ flameplot's documentation!
 With flameplot you can quantify the local similarities across two maps or embeddings, such as PCA and t-SNE or with the original high dimensional data.
 
 
-
-.. |fig1| image:: ../figs/pca2_tsne.png
-
-.. table:: Comparison PCA vs. t-SNE embedding.
-   :align: center
-
-   +----------+
-   | |fig1|   |
-   +----------+
+.. image:: ../figs/pca2_tsne.png
+   :width: 400
 
 
 Content
