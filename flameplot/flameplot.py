@@ -19,47 +19,27 @@ from urllib.parse import urlparse
 import pandas as pd
 import requests
 
-# %% Scatter
-def scatter(Xcoord,Ycoord,**args):
-    """Scatterplot.
-
-    Parameters
-    ----------
-    Xcoord : numpy array
-        1D Coordinates.
-    Ycoord : numpy array
-        1D Coordinates.
-    **args : TYPE
-        See scatterd for all possible arguments.
-
-    Returns
-    -------
-    fig.
-
-    """
-    # Pass all in scatterd
-    fig = scatterd(Xcoord, Ycoord,**args)
-    return(fig)
-
 
 # %%
 def compare(data1, data2, nn=250, n_steps=5, verbose=3):
-    """
+    """Comparison of two embeddings.
+
+    Decription
+    -----------
+    Quantification of local similarity across two maps or embeddings, such as PCA and t-SNE.
+    To compare the embedding of samples in two different maps using a scale dependent similarity measure.
+    For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky nearest neighbours of each sample.
 
     Parameters
     ----------
     data1 : numpy array
         Mapping of first embedding.
-
     data2 : numpy array
         Mapping of second embedding.
-
     nn : integer, optional
         number of neirest neighbor to compare between the two maps. This can be set based on the smalles class size or the aveage class size. The default is 250.
-
     n_steps : integer
         The number of evaluation steps until reaching nn, optional. If higher, the resolution becomes lower and vice versa. The default is 5.
-
     verbose : integer, optional
         print messages. The default is 3.
 
@@ -84,7 +64,7 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
 
     # Update nn
     args['nn'] = np.minimum(args['nn'], len(data1Order[0]))
-    args['nn'] = np.arange(1, args['nn']+1, args['n_steps'])
+    args['nn'] = np.arange(1, args['nn'] + 1, args['n_steps'])
 
     # Compute overlap
     scores = np.zeros((len(args['nn']), len(args['nn'])))
@@ -116,8 +96,8 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None, reverse_cmap=False):
 
     """
     if reverse_cmap:
-        cmap=cmap+'_r'
-        
+        cmap=cmap + '_r'
+
     fig = imagesc.plot(np.flipud(out['scores']),
                        cmap=cmap,
                        row_labels=np.flipud(out['nn']),
@@ -130,6 +110,29 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None, reverse_cmap=False):
                        linewidth=0.25,
                        xlabel=xlabel,
                        ylabel=ylabel)
+    return(fig)
+
+
+# %% Scatter
+def scatter(Xcoord, Ycoord, **args):
+    """Scatterplot.
+
+    Parameters
+    ----------
+    Xcoord : numpy array
+        1D Coordinates.
+    Ycoord : numpy array
+        1D Coordinates.
+    **args : TYPE
+        See scatterd for all possible arguments.
+
+    Returns
+    -------
+    fig.
+
+    """
+    # Pass all in scatterd
+    fig = scatterd(Xcoord, Ycoord, **args)
     return(fig)
 
 
@@ -146,6 +149,7 @@ def _overlap_comparison(data1Order, data2Order, nn, samples, p):
         out[k] = sum(tmpoverlap) / (len(tmpoverlap) * np.minimum(p, nn[k]))
 
     return(out)
+
 
 # %% Take NN based on the number of samples availble
 def _K_nearestneighbors(data1Dist, K):
@@ -165,32 +169,6 @@ def _K_nearestneighbors(data1Dist, K):
         outputOrder.append(I[np.arange(0, np.minimum(K, len(I)))])
     return(outputOrder)
 
-
-# %% Example data
-# def import_example():
-#     """Load digit example dataset.
-
-#     Returns
-#     -------
-#     TYPE
-#         No input required.
-
-#     Returns
-#     -------
-#     X,y
-#     """
-#     # Local library
-#     import pandas as pd
-
-#     print('[FLAMEPLOT] Loading digit example..')
-#     curpath = os.path.dirname(os.path.abspath(__file__))
-#     PATH_TO_DATA = os.path.join(curpath, 'data', 'digits.zip')
-#     if os.path.isfile(PATH_TO_DATA):
-#         df = pd.read_csv(PATH_TO_DATA, sep=',')
-#         return (df.values[:, 1:], df.values[:, 0])
-#     else:
-#         print('[KM] Oops! Example data not found! Try to get it at: www.github.com/erdogant/flameplot/')
-#         return None
 
 # %% Import example dataset from github.
 def import_example(data='digits', url=None, sep=','):
