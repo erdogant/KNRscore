@@ -47,6 +47,22 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     -------
     dict contains numpy array with scorings.
 
+    Examples
+    --------
+    >>> # Load data
+    >>> X, y = flameplot.import_example()
+    >>>
+    >>> # Compute embeddings
+    >>> embed_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+    >>> embed_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+    >>>
+    >>> # Compare PCA vs. tSNE
+    >>> scores = flameplot.compare(embed_pca, embed_tsne, n_steps=25)
+    >>>
+    >>> # plot PCA vs. tSNE
+    >>> fig = flameplot.plot(scores, xlabel='PCA', ylabel='tSNE')
+    >>>
+
     """
     # DECLARATIONS
     args = {}
