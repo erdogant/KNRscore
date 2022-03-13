@@ -45,7 +45,10 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
 
     Returns
     -------
-    dict contains numpy array with scorings.
+    dict()
+        * scores : array with the scores across various nearest neighbors (nn).
+        * nn : nearest neighbors
+        * n_steps : The number of evaluation steps until reaching nn.
 
     Examples
     --------
@@ -88,11 +91,11 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
         scores[p, :] = _overlap_comparison(data1Order, data2Order, args['nn'], data1.shape[0], args['nn'][p])
 
     # Return
-    out = dict()
-    out['scores'] = scores
-    out['nn'] = args['nn']
-    out['n_steps'] = args['n_steps']
-    return(out)
+    results = {}
+    results['scores'] = scores
+    results['nn'] = args['nn']
+    results['n_steps'] = args['n_steps']
+    return(results)
 
 
 # %% Plot
