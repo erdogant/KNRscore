@@ -109,11 +109,11 @@ On the [documentation pages](https://erdogant.github.io/flameplot/) you can find
   </a>
 </p>
 
-
+<hr>
 
 ### Support
 
-This project is at a very early stage. It needs some love! ❤️
+This project needs some love! ❤️
 
 Contribute to this project by feature requests, idea discussions, reporting bugs, opening pull requests, or through Github Sponsors. Your help is highly appreciated.
 
