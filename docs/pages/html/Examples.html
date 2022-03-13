@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparison high dimensional embedding: PCA vs tSNE &mdash; flameplot flameplot documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sponsor" href="Documentation.html" />
+    <link rel="prev" title="Input/Output" href="Tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> flameplot
+          </a>
+              <div class="version">
+                1.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <p class="caption" role="heading"><span class="caption-text">Method</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Background.html">Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Background.html#schematic-overview">Schematic overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html#uninstalling">Uninstalling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Input/Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html#plot">Plot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Comparison high dimensional embedding: PCA vs tSNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#comparison-2d-embeddings-pca-vs-tsne">Comparison 2D embeddings: PCA vs tSNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#comparison-random-data-vs-t-sne">Comparison Random data vs. t-SNE</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#github">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coding%20quality.html">Coding quality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flameplot.flameplot.html">API References</a></li>
+</ul>
+
+    <a href= "genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">flameplot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Comparison high dimensional embedding: PCA vs tSNE</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comparison-high-dimensional-embedding-pca-vs-tsne">
+<h1>Comparison high dimensional embedding: PCA vs tSNE<a class="headerlink" href="#comparison-high-dimensional-embedding-pca-vs-tsne" title="Permalink to this headline"></a></h1>
+<p>In the following example we load the mnist dataset and make a PCA and tSNE embedding for which we will analyze the distribution of samples in the embedding. The comparison between the top 50D of PCA vs. 2D tSNE resulted in high similarities on local and global scales. The axis are the number of “neirest neighbors” (nn). What we see is that on local scales (low nn) high similarity is seen between the maps but also in higher scales.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load libraries</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="p">(</span><span class="n">manifold</span><span class="p">,</span> <span class="n">decomposition</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Import library</span>
+<span class="kn">import</span> <span class="nn">flameplot</span> <span class="k">as</span> <span class="nn">flameplot</span>
+
+<span class="c1"># Load mnist example data</span>
+<span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">flameplot</span><span class="o">.</span><span class="n">import_example</span><span class="p">()</span>
+
+<span class="c1"># PCA: 50 PCs</span>
+<span class="n">X_pca_50</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># tSNE: 2D</span>
+<span class="n">X_tsne</span> <span class="o">=</span> <span class="n">manifold</span><span class="o">.</span><span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;pca&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Compare PCA(50) vs. tSNE</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">flameplot</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">X_pca_50</span><span class="p">,</span> <span class="n">X_tsne</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">flameplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scores1</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;PCA (50d)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;tSNE (2d)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-center" id="id1">
+<caption><span class="caption-text">PCA 50D vs t-SNE 2D</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><img alt="fig1" src="_images/pca50_tsne.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-2d-embeddings-pca-vs-tsne">
+<h1>Comparison 2D embeddings: PCA vs tSNE<a class="headerlink" href="#comparison-2d-embeddings-pca-vs-tsne" title="Permalink to this headline"></a></h1>
+<p>The comparison between the top 2D of PCA vs. 2D tSNE resulted in much lower similarities compared to the 50D on local and global scales. What we see is that on local scales (low nn) there is low similarity which depicts that samples have different neighbors. On larger scale it becomes a bit more greenish and slightly more similarities are seen on average between the neighbors. This would basically suggest that the same digits are detected globally but are differently ordered on local scales.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># PCA top 2 PCs</span>
+<span class="n">X_pca_2</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># tSNE</span>
+<span class="n">X_tsne</span> <span class="o">=</span> <span class="n">manifold</span><span class="o">.</span><span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;pca&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Compare PCA(2) vs. tSNE</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">flameplot</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">X_pca_2</span><span class="p">,</span> <span class="n">X_tsne</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">flameplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;PCA (2d)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;tSNE (2d)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-center" id="id2">
+<caption><span class="caption-text">PCA 2D vs t-SNE 2D</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><img alt="fig2" src="_images/pca2_tsne.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-random-data-vs-t-sne">
+<h1>Comparison Random data vs. t-SNE<a class="headerlink" href="#comparison-random-data-vs-t-sne" title="Permalink to this headline"></a></h1>
+<p>The comparison between the Random data points vs. 2D tSNE resulted in low similarities on both local and global scales. This what we expect to see as we permuted the data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random</span>
+<span class="n">X_rand</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="c1"># Compare random vs. tSNE</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">flameplot</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">X_rand</span><span class="p">,</span> <span class="n">X_tsne</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">flameplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Random (2d)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;tSNE (2d)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-center" id="id3">
+<caption><span class="caption-text">Random data vs t-SNE</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><img alt="fig3" src="_images/random_tsne.png" /></p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<center>
+        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEADP27U&placement=erdogantgithubio" id="_carbonads_js"></script>
+</center>
+<hr></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Tutorials.html" class="btn btn-neutral float-left" title="Input/Output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Documentation.html" class="btn btn-neutral float-right" title="Sponsor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Erdogan Taskesen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
