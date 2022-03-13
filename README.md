@@ -19,11 +19,11 @@
 
 ### Method
 To compare the embedding of samples in two different maps, we propose a scale dependent similarity measure. For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky nearest neighbours of each sample. We first define the variable rxij as the rank of the distance of sample j among all samples with respect to sample i, in map X. The nearest neighbor of sample i will have rank 1, the second nearest neighbor rank 2, etc. Analogously, ryij is the rank of sample j with respect to sample i in map Y. Now we define a score on the interval [0, 1], as (eq. 1)
-<p align="center">
+<p align="left">
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/eq1.png" width="450" />
 </p>
 where the variable n is the total number of samples, and the indicator function is given by (eq. 2)
-<p align="center">
+<p align="left">
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/eq2.png" width="250" />
 </p>
 The score sx,y(kx, ky) will have value 1 if, for each sample, all kx nearest neighbours in map X are also the ky nearest neighbours in map Y, or vice versa. Note that a local neighborhood of samples can be set on the minimum number of samples in the class. Alternatively, kxy can be also set on the average class size.
