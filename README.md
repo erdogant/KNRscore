@@ -1,5 +1,3 @@
-# Flameplot - Quantification of local similarity across two maps/embeddings.
-
 [![Python](https://img.shields.io/pypi/pyversions/flameplot)](https://img.shields.io/pypi/pyversions/flameplot)
 [![PyPI Version](https://img.shields.io/pypi/v/flameplot)](https://pypi.org/project/flameplot/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/flameplot/blob/master/LICENSE)
@@ -11,6 +9,8 @@
 [![DOI](https://zenodo.org/badge/234703853.svg)](https://zenodo.org/badge/latestdoi/234703853)
 <!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
+
+# Flameplot - Comparison of high dimensional embeddings.
 
 # 
 **Star this repo if you like it! ⭐️**
