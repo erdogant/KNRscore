@@ -7,12 +7,14 @@
 [![Downloads](https://pepy.tech/badge/flameplot/month)](https://pepy.tech/project/flameplot/)
 [![Downloads](https://pepy.tech/badge/flameplot)](https://pepy.tech/project/flameplot)
 [![DOI](https://zenodo.org/badge/234703853.svg)](https://zenodo.org/badge/latestdoi/234703853)
+[![Sphinx](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/flameplot/)
 <!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
-# Flameplot - Comparison of high dimensional embeddings.
+# Flameplot - Comparison of (high) dimensional embeddings.
 
-**Star this repo if you like it! ⭐️**
+**⭐️ Star this repo if you like it ⭐️**
+
 #
 
 ### Method
@@ -35,103 +37,93 @@ Schematic overview to systematically compare local and global differences betwee
 
 ### Functions in flameplot
 ```python
-scores = flameplot.compare(map1,map2)
+scores = flameplot.compare(map1, map2)
 fig    = flameplot.plot(scores)
 X,y    = flameplot.import_example()
 fig    = flameplot.scatter(Xcoord,Ycoord)
 
 ```
-## Installation
-* Install flameplot from PyPI (recommended). flameplot is compatible with Python 3.6+ and runs on Linux, MacOS X and Windows. 
-* It is distributed under the MIT license.
 
-## Quick Start
-```
+#### Install flameplot from PyPI
+
+```bash
 pip install flameplot
 ```
 
-* Alternatively, install flameplot from the GitHub source:
-```bash
-git clone https://github.com/erdogant/flameplot.git
-cd flameplot
-python setup.py install
-```  
+#### Import flameplot package
 
-### Import flameplot package
 ```python
 import flameplot as flameplot
 ```
+# 
 
-#### flameplot
-Comparison between two maps follow the quantification of local similarity approach.
-```python
-# Load libraries
-from sklearn import (manifold, decomposition)
-import pandas as pd
-import numpy as np
 
-# Load example data
-X,y=flameplot.import_example()
+### [Documentation pages](https://erdogant.github.io/flameplot/)
 
-# PCA top 50 PCs
-X_pca_50 = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
-# PCA top 2 PCs
-X_pca_2 = decomposition.TruncatedSVD(n_components=2).fit_transform(X)
-# tSNE
-X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
-# Random
-X_rand=np.c_[np.random.permutation(X_tsne[:,0]), np.random.permutation(X_tsne[:,1])]
-```
+On the [documentation pages](https://erdogant.github.io/flameplot/) you can find detailed information about the working of the ``flameplot`` with examples. 
 
-Scatter for illustrations purposes
-```python
-import flameplot as flameplot
-flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], label=y, title='PCA')
-flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  label=y, title='tSNE')
-flameplot.scatter(X_rand[:,0],  X_rand[:,1],  label=y, title='Random')
-```
-<p align="center">
+<hr> 
+
+### Examples
+
+# 
+
+* [Example: Comparison between two maps follow the quantification of local similarity approach.](https://erdogant.github.io/flameplot/pages/html/Examples.html)
+
+<p align="left">
+  <a href="https://erdogant.github.io/flameplot/pages/html/Examples.html">
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca50_tsne.png" width="400" />
+  </a>
+</p>
+
+# 
+
+* [Example: Comparison 2D embeddings: PCA vs tSNE](https://erdogant.github.io/flameplot/pages/html/Examples.html#comparison-2d-embeddings-pca-vs-tsne)
+
+<p align="left">
+  <a href="https://erdogant.github.io/flameplot/pages/html/Examples.html#comparison-2d-embeddings-pca-vs-tsne">
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca2_tsne.png" width="400" />
+  </a>
+</p>
+
+# 
+
+* [Example: Comparison Random data vs. t-SNE](https://erdogant.github.io/flameplot/pages/html/Examples.html#comparison-random-data-vs-t-sne)
+
+<p align="left">
+  <a href="https://erdogant.github.io/flameplot/pages/html/Examples.html#comparison-random-data-vs-t-sne">
+  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/random_tsne.png" width="400" />
+  </a>
+</p>
+
+
+# 
+
+* [Example: Scatterplots](https://erdogant.github.io/flameplot/pages/html/Examples.html#scatterplots)
+
+<p align="left">
+  <a href="https://erdogant.github.io/flameplot/pages/html/Examples.html#scatterplots">
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_pca.png" width="600" />
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_tsne.png" width="600" />
   <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/scatter_random.png" width="600" />
+  </a>
 </p>
 
-Now we have the coordinates and can make the comparison and plot!
-```python
-# Compare PCA(50) vs. tSNE
-scores1=flameplot.compare(X_pca_50, X_tsne, n_steps=5)
-# Compare PCA(2) vs. tSNE
-scores2=flameplot.compare(X_pca_2, X_tsne, n_steps=5)
-# Compare random vs. tSNE
-scores=flameplot.compare(X_rand, X_tsne, n_steps=5)
-# plot
-fig=flameplot.plot(scores1, xlabel='PCA (50d)', ylabel='tSNE (2d)')
-fig=flameplot.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
-fig=flameplot.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
-```
-The comparison between the top 50D of PCA vs. 2D tSNE resulted in high similarities on local and global scales. The axis are the number of "neirest neighbors" (nn). What we see is that on local scales (low nn) high similarity is seen between the maps but also in higher scales.
-<p align="center">
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca50_tsne.png" width="400" />
-</p>
+<hr>
 
-The comparison between the top 2D of PCA vs. 2D tSNE resulted in much lower similarities compared to the 50D on local and global scales. What we see is that on local scales (low nn) there is low similarity which depicts that samples have different neighbors. On larger scale it becomes a bit more greenish and slightly more similarities are seen on average between the neighbors. This would basically suggest that the same digits are detected globally but are differently ordered on local scales.
-<p align="center">
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/pca2_tsne.png" width="400" />
-</p>
+### Support
 
-The comparison between the Random data points vs. 2D tSNE resulted in low similarities on both local and global scales. This what we expect to see as we permuted the data.
-<p align="center">
-  <img src="https://github.com/erdogant/flameplot/blob/master/docs/figs/random_tsne.png" width="400" />
-</p>
+This project needs some love! ❤️
 
+Contribute to this project by feature requests, idea discussions, reporting bugs, opening pull requests, or through Github Sponsors. Your help is highly appreciated.
 
+* If you wish to buy me a <a href="https://www.buymeacoffee.com/erdogant">Coffee</a> for this work, it is very appreciated :)
+
+[![Github Sponsors](https://img.shields.io/github/sponsors/erdogant?label=github%20sponsors&logo=github%20sponsors&style=for-the-badge)](https://github.com/sponsors/erdogant)
+   
 
 ## References
 * Taskesen, E. et al. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. Sci. Rep. 6, 24949
 * https://static-content.springer.com/esm/art%3A10.1038%2Fsrep24949/MediaObjects/41598_2016_BFsrep24949_MOESM12_ESM.pdf
 * https://www.nature.com/articles/srep24949
 
-### Maintainer
-* Erdogan Taskesen, github: [erdogant](https://github.com/erdogant)
-* Contributions are welcome.
-* If you wish to buy me a <a href="https://www.buymeacoffee.com/erdogant">Coffee</a> for this work, it is very appreciated :)
