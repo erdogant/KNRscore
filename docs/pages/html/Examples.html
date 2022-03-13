@@ -62,6 +62,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Comparison high dimensional embedding: PCA vs tSNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#comparison-2d-embeddings-pca-vs-tsne">Comparison 2D embeddings: PCA vs tSNE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#comparison-random-data-vs-t-sne">Comparison Random data vs. t-SNE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#scatterplots">Scatterplots</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
@@ -182,6 +183,34 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><img alt="fig3" src="_images/random_tsne.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="scatterplots">
+<h1>Scatterplots<a class="headerlink" href="#scatterplots" title="Permalink to this headline"></a></h1>
+<p>Scatter plots can also being created:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create scatterplot of PCA</span>
+<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create scatterplot of t-SNE</span>
+<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>  <span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>  <span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;tSNE&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create scatterplot of the random data</span>
+<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_rand</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>  <span class="n">X_rand</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>  <span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Random&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-center" id="id4">
+<caption><span class="caption-text">Scatterplots</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><img alt="fig4" src="_images/scatter_pca.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p><img alt="fig5" src="_images/scatter_tsne.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p><img alt="fig6" src="_images/scatter_random.png" /></p></td>
 </tr>
 </tbody>
 </table>

@@ -99,6 +99,38 @@ The comparison between the Random data points vs. 2D tSNE resulted in low simila
    +----------+
 
 
+Scatterplots
+#########################################################
+
+Scatter plots can also being created:
+
+.. code:: python
+	
+	# Create scatterplot of PCA
+	flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], label=y, title='PCA')
+
+	# Create scatterplot of t-SNE
+	flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  label=y, title='tSNE')
+
+	# Create scatterplot of the random data
+	flameplot.scatter(X_rand[:,0],  X_rand[:,1],  label=y, title='Random')
+
+
+.. |fig4| image:: ../figs/scatter_pca.png
+.. |fig5| image:: ../figs/scatter_tsne.png
+.. |fig6| image:: ../figs/scatter_random.png
+
+.. table:: Scatterplots
+   :align: center
+
+   +----------+
+   | |fig4|   |
+   +----------+
+   | |fig5|   |
+   +----------+
+   | |fig6|   |
+   +----------+
+
 
 .. raw:: html
 
