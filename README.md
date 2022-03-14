@@ -124,7 +124,7 @@ On the [documentation pages](https://erdogant.github.io/flameplot/) you can find
 	* Read more why becoming an sponsor is important on the Sponsor Github Page.
 	
 	Cheers Mate.
-   
+
 
 ## References
 * Taskesen, E. et al. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. Sci. Rep. 6, 24949
