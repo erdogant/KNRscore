@@ -111,15 +111,19 @@ On the [documentation pages](https://erdogant.github.io/flameplot/) you can find
 
 <hr>
 
+<hr>
+
+
 ### Support
 
-This project needs some love! ❤️
+	This project needs some love! ❤️ You can help in various ways.
 
-Contribute to this project by feature requests, idea discussions, reporting bugs, opening pull requests, or through Github Sponsors. Your help is highly appreciated.
-
-* If you wish to buy me a <a href="https://www.buymeacoffee.com/erdogant">Coffee</a> for this work, it is very appreciated :)
-
-[![Github Sponsors](https://img.shields.io/github/sponsors/erdogant?label=github%20sponsors&logo=github%20sponsors&style=for-the-badge)](https://github.com/sponsors/erdogant)
+	* Become a Sponsor!
+	* Star this repo at the github page.
+	* Other contributions can be in the form of feature requests, idea discussions, reporting bugs, opening pull requests.
+	* Read more why becoming an sponsor is important on the Sponsor Github Page.
+	
+	Cheers Mate.
    
 
 ## References
