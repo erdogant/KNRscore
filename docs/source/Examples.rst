@@ -107,13 +107,13 @@ Scatter plots can also being created:
 .. code:: python
 	
 	# Create scatterplot of PCA
-	flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], label=y, title='PCA')
+	flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], labels=y, title='PCA', density=False)
 
 	# Create scatterplot of t-SNE
-	flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  label=y, title='tSNE')
+	flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  labels=y, title='tSNE')
 
 	# Create scatterplot of the random data
-	flameplot.scatter(X_rand[:,0],  X_rand[:,1],  label=y, title='Random')
+	flameplot.scatter(X_rand[:,0],  X_rand[:,1],  labels=y, title='Random')
 
 
 .. |fig4| image:: ../figs/scatter_pca.png

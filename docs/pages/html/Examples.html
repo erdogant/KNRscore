@@ -31,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> flameplot
           </a>
               <div class="version">
-                1.0.1
+                1.0.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -191,13 +191,13 @@
 <h1>Scatterplots<a class="headerlink" href="#scatterplots" title="Permalink to this headline"></a></h1>
 <p>Scatter plots can also being created:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create scatterplot of PCA</span>
-<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA&#39;</span><span class="p">)</span>
+<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Create scatterplot of t-SNE</span>
-<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>  <span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>  <span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;tSNE&#39;</span><span class="p">)</span>
+<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>  <span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>  <span class="n">labels</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;tSNE&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create scatterplot of the random data</span>
-<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_rand</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>  <span class="n">X_rand</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>  <span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Random&#39;</span><span class="p">)</span>
+<span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_rand</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>  <span class="n">X_rand</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>  <span class="n">labels</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Random&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <table class="docutils align-center" id="id4">
