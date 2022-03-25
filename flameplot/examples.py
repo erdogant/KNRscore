@@ -52,6 +52,6 @@ scores = flameplot.compare(X_rand, embed_pca, n_steps=25)
 fig = flameplot.plot(scores, xlabel='Random', ylabel='PCA')
 
 # Scatter
-flameplot.scatter(embed_pca[:,0], embed_pca[:,1] , labels=y, title='PCA')
+flameplot.scatter(embed_pca[:,0], embed_pca[:,1] , labels=y, title='PCA', density=False)
 flameplot.scatter(embed_tsne[:,0], embed_tsne[:,1], labels=y, title='tSNE')
 flameplot.scatter(X_rand[:,0], X_rand[:,1], labels=y, title='Random')
