@@ -21,7 +21,7 @@ import requests
 
 
 # %%
-def compare(data1, data2, nn=250, n_steps=5, verbose=3):
+def compare(mapX, mapY, nn=250, n_steps=5, verbose=3):
     """Comparison of two embeddings.
 
     Decription
@@ -32,7 +32,7 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
 
     Parameters
     ----------
-    data1 : numpy array
+    mapX : numpy array
         Mapping of first embedding.
     data2 : numpy array
         Mapping of second embedding.
@@ -74,8 +74,8 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     args['nn'] = nn
 
     # Compute distances
-    data1Dist = squareform(pdist(data1, 'euclidean'))
-    data2Dist = squareform(pdist(data2, 'euclidean'))
+    data1Dist = squareform(pdist(mapX, 'euclidean'))
+    data2Dist = squareform(pdist(mapY, 'euclidean'))
 
     # Take NN based for each of the sample
     data1Order = _K_nearestneighbors(data1Dist, args['nn'])
@@ -88,7 +88,7 @@ def compare(data1, data2, nn=250, n_steps=5, verbose=3):
     # Compute overlap
     scores = np.zeros((len(args['nn']), len(args['nn'])))
     for p in tqdm(range(0, len(args['nn'])), disable=(True if args['verbose'] == 0 else False)):
-        scores[p, :] = _overlap_comparison(data1Order, data2Order, args['nn'], data1.shape[0], args['nn'][p])
+        scores[p, :] = _overlap_comparison(data1Order, data2Order, args['nn'], mapX.shape[0], args['nn'][p])
 
     # Return
     results = {}
@@ -177,15 +177,15 @@ def _K_nearestneighbors(data1Dist, K):
 
     # Find neirest neighbors
     for i in range(0, data1Dist.shape[0]):
-        I = np.argsort(data1Dist[i, :])
-        Dsort = data1Dist[i, I]
+        Iloc = np.argsort(data1Dist[i, :])
+        Dsort = data1Dist[i, Iloc]
         idx = np.where(Dsort != 0)[0]
         Dsort = Dsort[idx]
-        I = I[idx]
-        I = I[np.arange(0, np.minimum(K, len(I)))]
+        Iloc = Iloc[idx]
+        Iloc = Iloc[np.arange(0, np.minimum(K, len(Iloc)))]
 
         # Store data
-        outputOrder.append(I[np.arange(0, np.minimum(K, len(I)))])
+        outputOrder.append(Iloc[np.arange(0, np.minimum(K, len(Iloc)))])
     return(outputOrder)
 
 
