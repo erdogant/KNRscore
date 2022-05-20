@@ -5,6 +5,9 @@ flameplot's documentation!
 With flameplot you can quantify the local similarities across two maps or embeddings, such as PCA and t-SNE or with the original high dimensional data.
 
 
+.. tip::
+	`Medium blog: The Similarity between t-SNE, UMAP, PCA, and Other Mappings <https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303>`_
+
 .. image:: ../figs/pca2_tsne.png
    :width: 400
 
