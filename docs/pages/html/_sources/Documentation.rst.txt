@@ -1,5 +1,14 @@
+Sponsor
+############
+
 .. include:: sponsor.rst
 
+
+Blog
+################
+
+.. note::
+	`Medium blog: The Similarity between t-SNE, UMAP, PCA, and Other Mappings <https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303>`_
 
 Github
 ############

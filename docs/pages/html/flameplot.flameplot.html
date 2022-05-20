@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> flameplot
           </a>
               <div class="version">
-                1.0.3
+                1.0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html">Sponsor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#blog">Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#github">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Coding%20quality.html">Coding quality</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API References</a></li>
@@ -102,7 +103,7 @@
 <p>Comparing low vs. high dimensions/embeddings.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="flameplot.flameplot.compare">
-<span class="sig-prename descclassname"><span class="pre">flameplot.flameplot.</span></span><span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flameplot.flameplot.compare" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">flameplot.flameplot.</span></span><span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapX</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapY</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flameplot.flameplot.compare" title="Permalink to this definition"></a></dt>
 <dd><p>Comparison of two embeddings.</p>
 <p>Quantification of local similarity across two maps or embeddings, such as PCA and t-SNE.
 To compare the embedding of samples in two different maps using a scale dependent similarity measure.
@@ -110,7 +111,7 @@ For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data1</strong> (<em>numpy array</em>) – Mapping of first embedding.</p></li>
+<li><p><strong>mapX</strong> (<em>numpy array</em>) – Mapping of first embedding.</p></li>
 <li><p><strong>data2</strong> (<em>numpy array</em>) – Mapping of second embedding.</p></li>
 <li><p><strong>nn</strong> (<em>integer</em><em>, </em><em>optional</em>) – number of neirest neighbor to compare between the two maps. This can be set based on the smalles class size or the aveage class size. The default is 250.</p></li>
 <li><p><strong>n_steps</strong> (<em>integer</em>) – The number of evaluation steps until reaching nn, optional. If higher, the resolution becomes lower and vice versa. The default is 5.</p></li>
@@ -181,8 +182,11 @@ For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky 
 <li><p><strong>cmap</strong> (<em>string</em><em>, </em><em>optional</em>) – colormap. The default is ‘jet’.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>fig.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>fig.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,8 +203,11 @@ For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky 
 <li><p><strong>**args</strong> (<em>TYPE</em>) – See scatterd for all possible arguments.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>fig.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>fig.</p>
 </dd>
 </dl>
 </dd></dl>
