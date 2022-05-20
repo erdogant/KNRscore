@@ -8,12 +8,19 @@
 [![Downloads](https://pepy.tech/badge/flameplot)](https://pepy.tech/project/flameplot)
 [![DOI](https://zenodo.org/badge/234703853.svg)](https://zenodo.org/badge/latestdoi/234703853)
 [![Sphinx](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/flameplot/)
+[![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://erdogant.github.io/flameplot/pages/html/Documentation.html#medium-blog)
 <!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
 # Flameplot - Comparison of (high) dimensional embeddings.
 
 **⭐️ Star this repo if you like it ⭐️**
+
+
+### Medium Blog
+
+Also checkout [The Similarity between t-SNE, UMAP, PCA, and Other Mappings](https://erdogant.github.io/flameplot/pages/html/Documentation.html#medium-blog) to get a structured overview and usage of ``flameplot``.
+
 
 #
 
