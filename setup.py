@@ -11,7 +11,7 @@ else:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
-     install_requires=['matplotlib','numpy','tqdm','scipy','imagesc','scatterd'],
+     install_requires=['matplotlib','numpy','tqdm','scipy','imagesc','scatterd','requests'],
      python_requires='>=3',
      name='flameplot',
      version=new_version,

@@ -8,3 +8,4 @@ tqdm
 scipy
 imagesc
 scatterd
+requests
