@@ -15,6 +15,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -31,7 +32,7 @@
             <a href="index.html" class="icon icon-home"> flameplot
           </a>
               <div class="version">
-                1.0.2
+                1.0.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -69,6 +70,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html">Sponsor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#medium-blog">Medium Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#github">Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html#citing">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Coding%20quality.html">Coding quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flameplot.flameplot.html">API References</a></li>
 </ul>
@@ -100,7 +102,7 @@
            <div itemprop="articleBody">
              
   <section id="comparison-high-dimensional-embedding-pca-vs-tsne">
-<h1>Comparison high dimensional embedding: PCA vs tSNE<a class="headerlink" href="#comparison-high-dimensional-embedding-pca-vs-tsne" title="Permalink to this headline"></a></h1>
+<h1>Comparison high dimensional embedding: PCA vs tSNE<a class="headerlink" href="#comparison-high-dimensional-embedding-pca-vs-tsne" title="Permalink to this heading"></a></h1>
 <p>In the following example we load the mnist dataset and make a PCA and tSNE embedding for which we will analyze the distribution of samples in the embedding. The comparison between the top 50D of PCA vs. 2D tSNE resulted in high similarities on local and global scales. The axis are the number of “neirest neighbors” (nn). What we see is that on local scales (low nn) high similarity is seen between the maps but also in higher scales.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load libraries</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="p">(</span><span class="n">manifold</span><span class="p">,</span> <span class="n">decomposition</span><span class="p">)</span>
@@ -138,7 +140,7 @@
 </table>
 </section>
 <section id="comparison-2d-embeddings-pca-vs-tsne">
-<h1>Comparison 2D embeddings: PCA vs tSNE<a class="headerlink" href="#comparison-2d-embeddings-pca-vs-tsne" title="Permalink to this headline"></a></h1>
+<h1>Comparison 2D embeddings: PCA vs tSNE<a class="headerlink" href="#comparison-2d-embeddings-pca-vs-tsne" title="Permalink to this heading"></a></h1>
 <p>The comparison between the top 2D of PCA vs. 2D tSNE resulted in much lower similarities compared to the 50D on local and global scales. What we see is that on local scales (low nn) there is low similarity which depicts that samples have different neighbors. On larger scale it becomes a bit more greenish and slightly more similarities are seen on average between the neighbors. This would basically suggest that the same digits are detected globally but are differently ordered on local scales.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># PCA top 2 PCs</span>
 <span class="n">X_pca_2</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -165,7 +167,7 @@
 </table>
 </section>
 <section id="comparison-random-data-vs-t-sne">
-<h1>Comparison Random data vs. t-SNE<a class="headerlink" href="#comparison-random-data-vs-t-sne" title="Permalink to this headline"></a></h1>
+<h1>Comparison Random data vs. t-SNE<a class="headerlink" href="#comparison-random-data-vs-t-sne" title="Permalink to this heading"></a></h1>
 <p>The comparison between the Random data points vs. 2D tSNE resulted in low similarities on both local and global scales. This what we expect to see as we permuted the data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random</span>
 <span class="n">X_rand</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])]</span>
@@ -189,7 +191,7 @@
 </table>
 </section>
 <section id="scatterplots">
-<h1>Scatterplots<a class="headerlink" href="#scatterplots" title="Permalink to this headline"></a></h1>
+<h1>Scatterplots<a class="headerlink" href="#scatterplots" title="Permalink to this heading"></a></h1>
 <p>Scatter plots can also being created:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create scatterplot of PCA</span>
 <span class="n">flameplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca_2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCA&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>

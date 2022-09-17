@@ -17,6 +17,13 @@ Github
 	`Source code of flameplot can be found at Github <https://github.com/erdogant/flameplot/>`_
 
 
+Citing
+#########
+
+.. note::
+	Bibtex can be found at the right side at the `github page <https://github.com/erdogant/XXX/>`_.
+
+
 .. raw:: html
 
 	<hr>
