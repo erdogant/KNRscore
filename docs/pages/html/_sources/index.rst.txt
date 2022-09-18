@@ -12,9 +12,10 @@ With flameplot you can quantify the local similarities across two maps or embedd
    :width: 400
 
 
-Star is important
-======================
-If you ❤️ this project, **star** this repo at the `github page <https://github.com/erdogant/flameplot/>`_!
+
+You contribution is important
+==============================
+If you ❤️ this project, **star** this repo at the `github page <https://github.com/erdogant/flameplot/>`_ and have a look at the `sponser page <https://github.com/erdogant/flameplot/pages/html/Documentation.html>`_!
 
 
 Github
