@@ -36,4 +36,10 @@ Examples
 >>> fig = flameplot.plot(scores, xlabel='PCA', ylabel='tSNE')
 >>>
 
+References
+----------
+* Blog: https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303
+* Github: https://github.com/erdogant/flameplot
+* Documentation: https://erdogant.github.io/flameplot/
+
 """
