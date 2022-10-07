@@ -2,6 +2,14 @@ import flameplot as flameplot
 from sklearn import (manifold, decomposition)
 import numpy as np
 
+
+# %%
+    # compare,
+    # plot,
+    # import_example,
+    # scatter,
+
+
 # %%
 # Load libraries
 from sklearn import (manifold, decomposition)
@@ -21,10 +29,12 @@ X_pca_50 = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
 X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 
 # Compare PCA(50) vs. tSNE
-scores = flameplot.compare(X_pca_50, X_tsne, n_steps=5)
+scores = flameplot.compare(X_pca_50, X_tsne, n_steps=25)
 
 # Plot
-fig = flameplot.plot(scores, xlabel='PCA (50d)', ylabel='tSNE (2d)')
+fig, ax = flameplot.plot(scores, xlabel='PCA (50d)', ylabel='tSNE (2d)')
+
+fig, ax = flameplot.scatter(X_pca_50[:,0], X_pca_50[:,1])
 
 # %%
 # Load data
@@ -37,7 +47,7 @@ embed_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 # Compare PCA vs. tSNE
 scores = flameplot.compare(embed_pca, embed_tsne, n_steps=25)
 # plot PCA vs. tSNE
-fig = flameplot.plot(scores, xlabel='PCA', ylabel='tSNE')
+fig, ax = flameplot.plot(scores, xlabel='PCA', ylabel='tSNE')
 
 
 # %%
@@ -46,12 +56,12 @@ X_rand=np.append([np.random.permutation(embed_tsne[:,0])],  [np.random.permutati
 
 # Compare random vs. tSNE
 scores = flameplot.compare(X_rand, embed_tsne, n_steps=25)
-fig = flameplot.plot(scores, xlabel='Random', ylabel='tSNE')
+fig, ax = flameplot.plot(scores, xlabel='Random', ylabel='tSNE')
 
 scores = flameplot.compare(X_rand, embed_pca, n_steps=25)
-fig = flameplot.plot(scores, xlabel='Random', ylabel='PCA')
+fig, ax = flameplot.plot(scores, xlabel='Random', ylabel='PCA')
 
 # Scatter
-flameplot.scatter(embed_pca[:,0], embed_pca[:,1] , labels=y, title='PCA', density=False)
-flameplot.scatter(embed_tsne[:,0], embed_tsne[:,1], labels=y, title='tSNE')
-flameplot.scatter(X_rand[:,0], X_rand[:,1], labels=y, title='Random')
+fig, ax = flameplot.scatter(embed_pca[:,0], embed_pca[:,1] , labels=y, title='PCA', density=False)
+fig, ax = flameplot.scatter(embed_tsne[:,0], embed_tsne[:,1], labels=y, title='tSNE')
+fig, ax = flameplot.scatter(X_rand[:,0], X_rand[:,1], labels=y, title='Random')

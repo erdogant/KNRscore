@@ -123,7 +123,7 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None, reverse_cmap=False):
     if reverse_cmap:
         cmap=cmap + '_r'
 
-    fig = imagesc.plot(np.flipud(out['scores']),
+    fig, ax = imagesc.plot(np.flipud(out['scores']),
                        cmap=cmap,
                        row_labels=np.flipud(out['nn']),
                        col_labels=out['nn'],
@@ -135,7 +135,7 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None, reverse_cmap=False):
                        linewidth=0.25,
                        xlabel=xlabel,
                        ylabel=ylabel)
-    return(fig)
+    return fig, ax
 
 
 # %% Scatter
@@ -157,8 +157,8 @@ def scatter(Xcoord, Ycoord, **args):
 
     """
     # Pass all in scatterd
-    fig = scatterd(Xcoord, Ycoord, **args)
-    return(fig)
+    fig, ax = scatterd(Xcoord, Ycoord, **args)
+    return fig, ax
 
 
 # %% Take NN based on the number of samples availble
