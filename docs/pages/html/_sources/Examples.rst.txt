@@ -26,7 +26,7 @@ In the following example we load the mnist dataset and make a PCA and tSNE embed
 	scores = flameplot.compare(X_pca_50, X_tsne, n_steps=5)
 
 	# Plot
-	fig = flameplot.plot(scores1, xlabel='PCA (50d)', ylabel='tSNE (2d)')
+	fig, ax = flameplot.plot(scores1, xlabel='PCA (50d)', ylabel='tSNE (2d)')
 
 
 .. |fig1| image:: ../figs/pca50_tsne.png
@@ -57,7 +57,7 @@ The comparison between the top 2D of PCA vs. 2D tSNE resulted in much lower simi
 	scores = flameplot.compare(X_pca_2, X_tsne, n_steps=5)
 
 	# Plot
-	fig = flameplot.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
+	fig, ax = flameplot.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
 
 
 .. |fig2| image:: ../figs/pca2_tsne.png
@@ -85,7 +85,7 @@ The comparison between the Random data points vs. 2D tSNE resulted in low simila
 	scores = flameplot.compare(X_rand, X_tsne, n_steps=5)
 
 	# Plot
-	fig = flameplot.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
+	fig, ax = flameplot.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
 
 
 
@@ -107,13 +107,13 @@ Scatter plots can also being created:
 .. code:: python
 	
 	# Create scatterplot of PCA
-	flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], labels=y, title='PCA', density=False)
+	fig, ax = flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], labels=y, title='PCA', density=False)
 
 	# Create scatterplot of t-SNE
-	flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  labels=y, title='tSNE')
+	fig, ax = flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  labels=y, title='tSNE')
 
 	# Create scatterplot of the random data
-	flameplot.scatter(X_rand[:,0],  X_rand[:,1],  labels=y, title='Random')
+	fig, ax = flameplot.scatter(X_rand[:,0],  X_rand[:,1],  labels=y, title='Random')
 
 
 .. |fig4| image:: ../figs/scatter_pca.png
