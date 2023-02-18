@@ -199,8 +199,6 @@ def _K_nearestneighbors(data1Dist, K):
 def import_example(data='digits', url=None, sep=','):
     """Import example dataset from github source.
 
-    Description
-    -----------
     Import one of the few datasets from github source or specify your own download url link.
 
     Parameters
