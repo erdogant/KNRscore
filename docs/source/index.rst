@@ -3,8 +3,6 @@ flameplot's documentation!
 
 |python| |pypi| |docs| |stars| |LOC| |downloads_month| |downloads_total| |license| |forks| |open issues| |project status| |medium| |colab| |DOI| |repo-size| |donate|
 
-.. include:: add_top.add
-
 
 .. image:: ../figs/pca2_tsne.png
    :width: 400

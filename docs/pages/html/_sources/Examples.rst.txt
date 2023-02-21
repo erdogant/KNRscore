@@ -1,5 +1,3 @@
-.. include:: add_top.add
-
 Comparison high dimensional embedding: PCA vs tSNE
 #########################################################
 
