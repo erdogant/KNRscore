@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flameplot"
+dynamic = ["version"]
+authors = [{ name = "Erdogan Taskesen", email = "erdogant@gmail.com" },]
+description = "flameplot is a python package for the quantification of local similarity across two maps or embeddings."
+readme = "README.md"
+requires-python = ">=3"
+license = { file = "LICENSE" }
+keywords = ["Python", "tsne", "UMAP", "comparison"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ['matplotlib','numpy','tqdm','scipy','imagesc','scatterd','requests']
+
+[project.urls]
+Homepage = "https://erdogant.github.io/flameplot"
+Download = "https://github.com/erdogant/flameplot/archive/{version}.tar.gz"
+
+[tool.setuptools]
+packages = ["flameplot"]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "flameplot.__version__" }
