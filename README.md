@@ -9,8 +9,6 @@
 [![DOI](https://zenodo.org/badge/234703853.svg)](https://zenodo.org/badge/latestdoi/234703853)
 [![Sphinx](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/KNRscore/)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://erdogant.github.io/KNRscore/pages/html/Documentation.html#medium-blog)
-<!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
-<!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
 # KNRscore - Comparison of (high) dimensional embeddings.
 
@@ -42,14 +40,12 @@ Schematic overview to systematically compare local and global differences betwee
 </p>
 
 
-### Functions in KNRscore
-```python
-scores = KNRscore.compare(map1, map2)
-fig    = KNRscore.plot(scores)
-X,y    = KNRscore.import_example()
-fig    = KNRscore.scatter(Xcoord,Ycoord)
+### [Documentation pages](https://erdogant.github.io/KNRscore/)
 
-```
+On the [documentation pages](https://erdogant.github.io/KNRscore/) you can find detailed information about the working of the ``KNRscore`` with examples. 
+
+<hr> 
+
 
 #### Install KNRscore from PyPI
 
@@ -60,20 +56,40 @@ pip install KNRscore
 #### Import KNRscore package
 
 ```python
-import KNRscore as KNRscore
+import KNRscore as knrs
 ```
-# 
 
+### Functions in KNRscore
 
-### [Documentation pages](https://erdogant.github.io/KNRscore/)
+```python
+import KNRscore as knrs
+scores = knrs.compare(map1, map2)
+fig    = knrs.plot(scores)
+fig    = knrs.scatter(Xcoord,Ycoord)
 
-On the [documentation pages](https://erdogant.github.io/KNRscore/) you can find detailed information about the working of the ``KNRscore`` with examples. 
+```
+### Example
+```python
+    # Imort library
+    import KNRscore as knrs
 
-<hr> 
+    # Load data
+    X, y = KNRscore.import_example()
+    
+    # Compute embeddings
+    embed_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+    embed_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+    
+    # Compare PCA vs. tSNE
+    scores = knrs.compare(embed_pca, embed_tsne, n_steps=25)
+    
+    # plot PCA vs. tSNE
+    fig, ax = knrs.plot(scores, xlabel='PCA', ylabel='tSNE')
+    fig, ax = knrs.scatter(embed_tsne[:, 0], embed_tsne[:, 1], labels=y, cmap='Set1', title='tSNE Scatter Plot')
+    fig, ax = knrs.scatter(embed_pca[:, 0], embed_pca[:, 1], labels=y, cmap='Set1', title='PCA Scatter Plot')
+```
 
 ### Examples
-
-# 
 
 * [Example: Comparison between two maps follow the quantification of local similarity approach.](https://erdogant.github.io/KNRscore/pages/html/Examples.html)
 
@@ -121,20 +137,11 @@ On the [documentation pages](https://erdogant.github.io/KNRscore/) you can find 
 <hr>
 
 
-### Support
-
-	This project needs some love! ❤️ You can help in various ways.
-
-	* Become a Sponsor!
-	* Star this repo at the github page.
-	* Other contributions can be in the form of feature requests, idea discussions, reporting bugs, opening pull requests.
-	* Read more why becoming an sponsor is important on the Sponsor Github Page.
-	
-	Cheers Mate.
-
 
 ## References
 * Taskesen, E. et al. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. Sci. Rep. 6, 24949
 * https://static-content.springer.com/esm/art%3A10.1038%2Fsrep24949/MediaObjects/41598_2016_BFsrep24949_MOESM12_ESM.pdf
 * https://www.nature.com/articles/srep24949
 
+
+<a href="https://www.buymeacoffee.com/erdogant"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=erdogant&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
