@@ -40,6 +40,8 @@ Schematic overview to systematically compare local and global differences betwee
 </p>
 
 
+<hr> 
+
 ### [Documentation pages](https://erdogant.github.io/KNRscore/)
 
 On the [documentation pages](https://erdogant.github.io/KNRscore/) you can find detailed information about the working of the ``KNRscore`` with examples. 
