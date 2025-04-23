@@ -10,10 +10,11 @@
 [![Sphinx](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/KNRscore/)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://erdogant.github.io/KNRscore/pages/html/Documentation.html#medium-blog)
 
-## KNRscore - K-Nearest-Rank Similarity to quantify local structural similarity between two maps or embeddings.
 
 **⭐️ Star this repo if you like it ⭐️**
+## KNRscore - K-Nearest-Rank Similarity to quantify local structural similarity between two maps or embeddings.
 
+<hr>
 
 ### Medium Blog
 
