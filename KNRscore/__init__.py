@@ -28,7 +28,6 @@ _logger.propagate = False
 __doc__ = """
 KNRscore - A Python package for computing K-Nearest-Rank Similarity, a metric that quantifies local structural similarity between two maps or embeddings.
 
-
 =================================================================================================================================
 
 Decription
