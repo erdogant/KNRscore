@@ -2,13 +2,13 @@ import KNRscore as KNRscore
 from sklearn import (manifold, decomposition)
 import numpy as np
 
+#%%
+import KNRscore as knrs
 
-# %%
-    # compare,
-    # plot,
-    # import_example,
-    # scatter,
-
+knrs.check_logger(verbose='debug')
+knrs.check_logger(verbose='info')
+knrs.check_logger(verbose='warning')
+knrs.check_logger(verbose='error')
 
 # %%
 # Load libraries

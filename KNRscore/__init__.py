@@ -1,13 +1,28 @@
+import logging
+
 from KNRscore.KNRscore import(
     compare,
     plot,
     import_example,
     scatter,
-    wget)
+    wget,
+    check_logger,
+    )
 
 __author__ = 'Erdogan Tasksen'
 __email__ = 'erdogant@gmail.com'
-__version__ = '1.1.0'
+__version__ = '2.0.0'
+
+# Setup root logger
+_logger = logging.getLogger('KNRscore')
+_log_handler = logging.StreamHandler()
+_fmt = '[{asctime}] [{name}] {msg}'
+_formatter = logging.Formatter(fmt=_fmt, style='{', datefmt='%d-%m-%Y %H:%M:%S')
+_log_handler.setFormatter(_formatter)
+_log_handler.setLevel(logging.INFO)
+_logger.addHandler(_log_handler)
+_logger.propagate = False
+
 
 # module level doc-string
 __doc__ = """
