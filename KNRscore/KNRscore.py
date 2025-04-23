@@ -120,11 +120,36 @@ def plot(out, cmap='jet', xlabel=None, ylabel=None, reverse_cmap=False):
         output of the compare() function.
     cmap : string, optional
         colormap. The default is 'jet'.
+    xlabel : str, optional
+        Label for x-axis. The default is None.
+    ylabel : str, optional
+        Label for y-axis. The default is None.
+    reverse_cmap : bool, optional
+        Reverse the colormap. The default is False.
 
     Returns
     -------
-    fig.
+    fig, ax
+        Figure and axes objects.
 
+    Examples
+    --------
+    >>> # Load data
+    >>> X, y = KNRscore.import_example()
+    >>>
+    >>> # Compute embeddings
+    >>> embed_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+    >>> embed_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+    >>>
+    >>> # Create comparison scores
+    >>> scores = KNRscore.compare(embed_pca, embed_tsne)
+    >>>
+    >>> # Create plot with custom labels
+    >>> fig, ax = KNRscore.plot(scores, cmap='viridis', xlabel='PCA', ylabel='tSNE')
+    >>>
+    >>> # Create plot with reversed colormap
+    >>> fig, ax = KNRscore.plot(scores, cmap='viridis', reverse_cmap=True)
+    >>>
     """
     if reverse_cmap:
         cmap=cmap + '_r'
@@ -159,8 +184,32 @@ def scatter(Xcoord, Ycoord, **args):
 
     Returns
     -------
-    fig.
+    fig, ax
+        Figure and axes objects.
 
+    Examples
+    --------
+    >>> # Load data
+    >>> X, y = KNRscore.import_example()
+    >>>
+    >>> # Compute embeddings
+    >>> embed_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+    >>> embed_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+    >>>
+    >>> # Create comparison scores
+    >>> scores = KNRscore.compare(embed_pca, embed_tsne)
+    >>>
+    >>> # Create scatter plot with labels
+    >>> fig, ax = KNRscore.scatter(embed_tsne[:, 0], embed_tsne[:, 1], 
+    ...                           labels=y,
+    ...                           cmap='Set1',
+    ...                           title='Scatter Plot')
+    >>> 
+    >>> # Create scatter plot with custom markers
+    >>> fig, ax = KNRscore.scatter(embed_tsne[:, 0], embed_tsne[:, 1],
+    ...                           marker='o',
+    ...                           s=50,
+    ...                           alpha=0.5)
     """
     # Pass all in scatterd
     fig, ax = scatterd(Xcoord, Ycoord, **args)
@@ -179,7 +228,7 @@ def _overlap_comparison(data1Order, data2Order, nn, samples, p):
 
         out[k] = sum(tmpoverlap) / (len(tmpoverlap) * np.minimum(p, nn[k]))
 
-    return(out)
+    return out
 
 
 # %% Take NN based on the number of samples availble
@@ -198,7 +247,7 @@ def _K_nearestneighbors(data1Dist, K):
 
         # Store data
         outputOrder.append(Iloc[np.arange(0, np.minimum(K, len(Iloc)))])
-    return(outputOrder)
+    return outputOrder
 
 
 # %% Import example dataset from github.
@@ -213,15 +262,24 @@ def import_example(data='digits', url=None, sep=','):
         Name of datasets: 'digits'
     url : str
         url link to to dataset.
-    verbose : int, optional
-        Print progress to screen. The default is 3.
-        0: None, 1: ERROR, 2: WARN, 3: INFO (default), 4: DEBUG, 5: TRACE
+    sep : str, optional
+        Separator for CSV files. The default is ','.
 
     Returns
     -------
-    pd.DataFrame()
-        Dataset containing mixed features.
+    tuple
+        (X, y) where X is the feature matrix and y is the target vector.
 
+    Examples
+    --------
+    >>> # Load the digits dataset
+    >>> X, y = KNRscore.import_example(data='digits')
+    >>> print(X.shape)  # (1797, 64)
+    >>> print(y.shape)  # (1797,)
+    >>> 
+    >>> # Load custom dataset from URL
+    >>> url = 'https://example.com/data.csv'
+    >>> X, y = KNRscore.import_example(url=url)
     """
     if url is None:
         if data=='digits':

@@ -20,7 +20,7 @@ import numpy as np
 import KNRscore as KNRscore
 
 # Load mnist example data
-X,y = KNRscore.import_example()
+X, y = KNRscore.import_example()
 
 # PCA: 50 PCs
 X_pca_50 = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
