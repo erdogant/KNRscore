@@ -32,6 +32,13 @@ Key Features
 .. tip::
     For a detailed explanation of the methodology, check out our `Medium blog post <https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303>`_ on quantitative comparisons between dimensionality reduction techniques.
 
+-----------------------------------
+
+.. note::
+    **Your ❤️ is important to keep maintaining this package.** You can `support <https://erdogant.github.io/KNRscore/pages/html/Documentation.html>`_ in various ways, have a look at the `sponser page <https://erdogant.github.io/KNRscore/pages/html/Documentation.html>`_.
+    Report bugs, issues and feature extensions at `github <https://github.com/erdogant/KNRscore/>`_ page.
+
+
 Quick Start
 -----------
 
@@ -92,9 +99,9 @@ Documentation Contents
    :maxdepth: 2
    :caption: Reference
    
-   * :ref:`genindex`
-   * :ref:`modindex`
-   * :ref:`search`
+   genindex
+   modindex
+   search
 
 .. |python| image:: https://img.shields.io/pypi/pyversions/KNRscore.svg
     :alt: Python Version
@@ -116,11 +123,11 @@ Documentation Contents
     :alt: Lines of Code
     :target: https://github.com/erdogant/KNRscore
 
-.. |downloads_month| image:: https://static.pepy.tech/personalized-badge/KNRscore?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=PyPI%20downloads/month
+.. |downloads_month| image:: https://static.pepy.tech/personalized-badge/flameplot?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=PyPI%20downloads/month
     :alt: Monthly Downloads
     :target: https://pepy.tech/project/KNRscore
 
-.. |downloads_total| image:: https://static.pepy.tech/personalized-badge/KNRscore?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads
+.. |downloads_total| image:: https://static.pepy.tech/personalized-badge/flameplot?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads
     :alt: Total Downloads
     :target: https://pepy.tech/project/KNRscore
 

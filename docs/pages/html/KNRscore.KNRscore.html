@@ -19,7 +19,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Coding quality" href="Coding%20quality.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,13 +52,33 @@
 <li class="toctree-l1"><a class="reference internal" href="Tutorials.html#plot">Plot</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html">Sponsor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#medium-blog">Medium Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#github">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#citing">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Coding%20quality.html">Coding quality</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.check_logger"><code class="docutils literal notranslate"><span class="pre">check_logger()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.compare"><code class="docutils literal notranslate"><span class="pre">compare()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.convert_verbose_to_new"><code class="docutils literal notranslate"><span class="pre">convert_verbose_to_new()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.convert_verbose_to_old"><code class="docutils literal notranslate"><span class="pre">convert_verbose_to_old()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.disable_tqdm"><code class="docutils literal notranslate"><span class="pre">disable_tqdm()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.import_example"><code class="docutils literal notranslate"><span class="pre">import_example()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.scatter"><code class="docutils literal notranslate"><span class="pre">scatter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.set_logger"><code class="docutils literal notranslate"><span class="pre">set_logger()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#KNRscore.KNRscore.wget"><code class="docutils literal notranslate"><span class="pre">wget()</span></code></a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py-modindex.html">Module Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Search Page</a></li>
 </ul>
 
     <a href= "genindex.html">Index</a>
@@ -78,7 +99,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">API References</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/flameplot.flameplot.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/KNRscore.KNRscore.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -113,8 +134,8 @@
 <dt class="sig sig-object py" id="KNRscore.KNRscore.compare">
 <span class="sig-prename descclassname"><span class="pre">KNRscore.KNRscore.</span></span><span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapX</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapY</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'info'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#KNRscore.KNRscore.compare" title="Link to this definition"></a></dt>
 <dd><p>Comparison of two embeddings.</p>
-<section id="decription">
-<h2>Decription<a class="headerlink" href="#decription" title="Link to this heading"></a></h2>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
 <p>Quantification of local similarity across two maps or embeddings, such as PCA and t-SNE.
 To compare the embedding of samples in two different maps using a scale dependent similarity measure.
 For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky nearest neighbours of each sample.</p>
@@ -448,7 +469,9 @@ For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Coding%20quality.html" class="btn btn-neutral float-left" title="Coding quality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

@@ -75,7 +75,7 @@ The KNRscore methodology can be broken down into four main steps:
    - Aggregate results across all samples
 
 .. image:: ../figs/schematic_overview.png
-   :width: 600
+   :width: 400
    :align: center
    :alt: Schematic Overview of KNRscore Methodology
 

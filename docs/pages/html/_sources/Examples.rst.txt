@@ -120,17 +120,17 @@ KNRscore also provides tools for creating scatter plots of the embeddings:
 						  title='Random')
 
 .. image:: ../figs/scatter_pca.png
-   :width: 400
+   :width: 600
    :align: center
    :alt: PCA Scatter Plot
 
 .. image:: ../figs/scatter_tsne.png
-   :width: 400
+   :width: 600
    :align: center
    :alt: t-SNE Scatter Plot
 
 .. image:: ../figs/scatter_random.png
-   :width: 400
+   :width: 600
    :align: center
    :alt: Random Data Scatter Plot
 
@@ -156,12 +156,23 @@ For more advanced usage, consider:
 
 .. code-block:: python
 
+    # pip install umap-learn
+    import umap
+    
+    # Create PCA embedding (50 dimensions)
+    X_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
+    # Create t-SNE embedding (2 dimensions)
+    X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
+    # Create UMAP embedding (2 dimensions)
+    X_umap = umap.UMAP(n_components=2).fit_transform(X)
+
 	# Compare multiple embeddings
 	embeddings = {
 		'PCA': X_pca,
 		'tSNE': X_tsne,
-		'UMAP': X_umap
-	}
+		'UMAP': X_umap,
+		}
+
 	for name1, emb1 in embeddings.items():
 		for name2, emb2 in embeddings.items():
 			if name1 < name2:
