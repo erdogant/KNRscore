@@ -1,7 +1,7 @@
 KNRscore Documentation
 ======================
 
-|python| |pypi| |docs| |stars| |LOC| |downloads_month| |downloads_total| |license| |forks| |open issues| |project status| |medium| |colab| |DOI| |repo-size| |donate|
+|python| |pypi| |docs| |stars| |LOC| |downloads_month| |downloads_total| |license| |forks| |open issues| |project status| |medium| |DOI| |repo-size| |donate|
 
 .. image:: ../figs/pca2_tsne.png
    :width: 400
@@ -26,8 +26,7 @@ Key Features
 - **Scale-dependent Analysis**: Compare embeddings at different neighborhood scales
 - **Flexible Input**: Works with any embedding or high-dimensional data
 - **Intuitive Visualization**: Generate clear comparison plots
-- **Easy Integration**: Simple API with comprehensive documentation
-- **Active Development**: Regular updates and community support
+- **Easy Integration**: Simple usage with comprehensive documentation
 
 .. tip::
     For a detailed explanation of the methodology, check out our `Medium blog post <https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303>`_ on quantitative comparisons between dimensionality reduction techniques.
@@ -88,9 +87,14 @@ Documentation Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Usage
+   :caption: Examples
    
    Examples
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Usage
+   
    Documentation
    Coding quality
    KNRscore.KNRscore
@@ -154,10 +158,6 @@ Documentation Contents
 .. |donate| image:: https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors
     :alt: Support
     :target: https://erdogant.github.io/KNRscore/pages/html/Documentation.html#
-
-.. |colab| image:: https://colab.research.google.com/assets/colab-badge.svg
-    :alt: Google Colab
-    :target: https://erdogant.github.io/KNRscore/pages/html/Documentation.html#colab-notebook
 
 .. |DOI| image:: https://zenodo.org/badge/234703853.svg
     :alt: DOI
