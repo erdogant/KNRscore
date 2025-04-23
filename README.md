@@ -19,6 +19,8 @@
 
 Also checkout [The Similarity between t-SNE, UMAP, PCA, and Other Mappings](https://erdogant.github.io/KNRscore/pages/html/Documentation.html#medium-blog) to get a structured overview and usage of ``KNRscore``.
 
+#
+
 ### [Documentation pages](https://erdogant.github.io/KNRscore/)
 
 On the [documentation pages](https://erdogant.github.io/KNRscore/) you can find detailed information about the working of the ``KNRscore`` with examples. 
