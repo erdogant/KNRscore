@@ -1,122 +1,135 @@
-KNRscore's documentation!
-==============================
+KNRscore Documentation
+======================
 
 |python| |pypi| |docs| |stars| |LOC| |downloads_month| |downloads_total| |license| |forks| |open issues| |project status| |medium| |colab| |DOI| |repo-size| |donate|
 
-
 .. image:: ../figs/pca2_tsne.png
    :width: 400
-
+   :align: center
+   :alt: PCA vs t-SNE Comparison
 
 -----------------------------------
 
+Overview
+--------
 
-``KNRscore`` is a Python package for the comparison of high dimensional embeddings using a scale dependent similarity measure.
-With KNRscore you can quantify the local similarities across two maps or embeddings, such as PCA and t-SNE or with the original high dimensional data.
+``KNRscore`` is a powerful Python package for quantitative comparison of high-dimensional embeddings using a scale-dependent similarity measure. It enables researchers and data scientists to:
 
+- Compare different dimensionality reduction techniques (PCA, t-SNE, UMAP, etc.)
+- Quantify local similarities between embeddings
+- Evaluate the preservation of neighborhood structures
+- Visualize comparison results with intuitive plots
+
+Key Features
+------------
+
+- **Scale-dependent Analysis**: Compare embeddings at different neighborhood scales
+- **Flexible Input**: Works with any embedding or high-dimensional data
+- **Intuitive Visualization**: Generate clear comparison plots
+- **Easy Integration**: Simple API with comprehensive documentation
+- **Active Development**: Regular updates and community support
 
 .. tip::
-	`Blog (Medium): Quantitative comparisons between t-SNE, UMAP, PCA, and Other Mappings. <https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303>`_
+    For a detailed explanation of the methodology, check out our `Medium blog post <https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303>`_ on quantitative comparisons between dimensionality reduction techniques.
 
+Quick Start
+-----------
 
+.. code-block:: console
 
------------------------------------
+   pip install KNRscore
+
+.. code-block:: python
+
+   import KNRscore as knrs
+   from sklearn.decomposition import PCA
+   from sklearn.manifold import TSNE
+   
+   # Load example data
+   X, y = knrs.import_example(data='digits')
+   
+   # Create embeddings
+   pca = PCA(n_components=2).fit_transform(X)
+   tsne = TSNE(n_components=2).fit_transform(X)
+   
+   # Compare embeddings
+   scores = knrs.compare(pca, tsne)
+   
+   # Visualize results
+   fig, ax = knrs.plot(scores, xlabel='PCA', ylabel='tSNE')
 
 .. note::
-	**Your ❤️ is important to keep maintaining this package.** You can `support <https://erdogant.github.io/KNRscore/pages/html/Documentation.html>`_ in various ways, have a look at the `sponser page <https://erdogant.github.io/KNRscore/pages/html/Documentation.html>`_.
-	Report bugs, issues and feature extensions at `github <https://github.com/erdogant/KNRscore/>`_ page.
+    **Support the Project**: Your support helps maintain and improve this package. Consider:
+    
+    - Starring the repository on GitHub
+    - Reporting issues and suggesting features
+    - Contributing code or documentation
+    - Supporting through GitHub Sponsors
+    
+    Visit our `sponsor page <https://erdogant.github.io/KNRscore/pages/html/Documentation.html>`_ for more ways to contribute.
 
-	.. code-block:: console
-
-	   pip install KNRscore
-
------------------------------------
-
-
-Content
-=======
+Documentation Contents
+======================
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Method
+   :maxdepth: 2
+   :caption: Getting Started
    
    Background
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Installation
-   
    Installation
-
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Tutorials
-
-  Tutorials
-
+   Tutorials
 
 .. toctree::
-  :maxdepth: 1
-  :caption: Examples
-
-  Examples
+   :maxdepth: 2
+   :caption: Usage
+   
+   Examples
+   Documentation
+   Coding quality
+   KNRscore.KNRscore
 
 .. toctree::
-  :maxdepth: 1
-  :caption: Documentation
-  
-  Documentation
-  Coding quality
-  KNRscore.KNRscore
-
-* :ref:`genindex`
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
-
+   :maxdepth: 2
+   :caption: Reference
+   
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`
 
 .. |python| image:: https://img.shields.io/pypi/pyversions/KNRscore.svg
-    :alt: |Python
+    :alt: Python Version
     :target: https://erdogant.github.io/KNRscore/
 
 .. |pypi| image:: https://img.shields.io/pypi/v/KNRscore.svg
-    :alt: |Python Version
+    :alt: PyPI Version
     :target: https://pypi.org/project/KNRscore/
 
 .. |docs| image:: https://img.shields.io/badge/Sphinx-Docs-blue.svg
-    :alt: Sphinx documentation
+    :alt: Documentation
     :target: https://erdogant.github.io/KNRscore/
 
 .. |stars| image:: https://img.shields.io/github/stars/erdogant/KNRscore
-    :alt: Stars
-    :target: https://img.shields.io/github/stars/erdogant/KNRscore
+    :alt: GitHub Stars
+    :target: https://github.com/erdogant/KNRscore
 
 .. |LOC| image:: https://sloc.xyz/github/erdogant/KNRscore/?category=code
-    :alt: lines of code
+    :alt: Lines of Code
     :target: https://github.com/erdogant/KNRscore
 
 .. |downloads_month| image:: https://static.pepy.tech/personalized-badge/KNRscore?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=PyPI%20downloads/month
-    :alt: Downloads per month
+    :alt: Monthly Downloads
     :target: https://pepy.tech/project/KNRscore
 
 .. |downloads_total| image:: https://static.pepy.tech/personalized-badge/KNRscore?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads
-    :alt: Downloads in total
+    :alt: Total Downloads
     :target: https://pepy.tech/project/KNRscore
 
 .. |license| image:: https://img.shields.io/badge/license-MIT-green.svg
-    :alt: License
+    :alt: MIT License
     :target: https://github.com/erdogant/KNRscore/blob/master/LICENSE
 
 .. |forks| image:: https://img.shields.io/github/forks/erdogant/KNRscore.svg
-    :alt: Github Forks
+    :alt: GitHub Forks
     :target: https://github.com/erdogant/KNRscore/network
 
 .. |open issues| image:: https://img.shields.io/github/issues/erdogant/KNRscore.svg
@@ -132,15 +145,15 @@ Indices and tables
     :target: https://erdogant.github.io/KNRscore/pages/html/Documentation.html#medium-blog
 
 .. |donate| image:: https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors
-    :alt: donate
+    :alt: Support
     :target: https://erdogant.github.io/KNRscore/pages/html/Documentation.html#
 
 .. |colab| image:: https://colab.research.google.com/assets/colab-badge.svg
-    :alt: Colab example
+    :alt: Google Colab
     :target: https://erdogant.github.io/KNRscore/pages/html/Documentation.html#colab-notebook
 
 .. |DOI| image:: https://zenodo.org/badge/234703853.svg
-    :alt: Cite
+    :alt: DOI
     :target: https://zenodo.org/badge/latestdoi/234703853
 
 .. |repo-size| image:: https://img.shields.io/github/repo-size/erdogant/KNRscore

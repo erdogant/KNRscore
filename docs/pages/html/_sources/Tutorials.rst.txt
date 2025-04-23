@@ -2,7 +2,7 @@ Input/Output
 ###########################
 
 
-.. automodule:: flameplot.flameplot.compare
+.. automodule:: KNRscore.KNRscore.compare
     :members:
     :undoc-members:
     :noindex:
@@ -12,7 +12,7 @@ Input/Output
 Plot
 ###########################
 
-.. automodule:: flameplot.flameplot.plot
+.. automodule:: KNRscore.KNRscore.plot
     :members:
     :undoc-members:
     :noindex:

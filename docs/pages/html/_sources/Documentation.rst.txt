@@ -14,7 +14,7 @@ Github
 ############
 
 .. note::
-	`Source code of flameplot can be found at Github <https://github.com/erdogant/flameplot/>`_
+	`Source code of KNRscore can be found at Github <https://github.com/erdogant/KNRscore/>`_
 
 
 Citing

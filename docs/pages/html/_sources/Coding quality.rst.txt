@@ -17,7 +17,7 @@ The file structure of the generated package looks like:
 
 .. code-block:: bash
 
-    path/to/flameplot/
+    path/to/KNRscore/
     ├── .editorconfig
     ├── .gitignore
     ├── .pre-commit-config.yml
@@ -30,17 +30,17 @@ The file structure of the generated package looks like:
     ├── LICENSE
     ├── MANIFEST.in
     ├── NOTICE
-    ├── flameplot
+    ├── KNRscore
     │   ├── __init__.py
     │   ├── __version__.py
-    │   └── flameplot.py
+    │   └── KNRscore.py
     ├── README.md
     ├── requirements.txt
     ├── setup.cfg
     ├── setup.py
     └── tests
         ├── __init__.py
-        └── test_flameplot.py
+        └── test_KNRscore.py
 
 
 Style
@@ -68,7 +68,7 @@ Unit tests
 
 
 The use of unit tests is essential to garantee a consistent output of developed functions.
-The following tests are secured using :func:`tests.test_flameplot`:
+The following tests are secured using :func:`tests.test_KNRscore`:
 
 * The input are checked.
 * The output values are checked and whether they are encoded properly.

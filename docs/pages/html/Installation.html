@@ -1,28 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; flameplot flameplot documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Installation &mdash; KNRscore KNRscore documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e0179649" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=78965d52"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Input/Output" href="Tutorials.html" />
-    <link rel="prev" title="Method" href="Background.html" /> 
+    <link rel="prev" title="Methodology" href="Background.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,57 +29,50 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> flameplot
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            KNRscore
           </a>
-              <div class="version">
-                1.1.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
     
-              <p class="caption" role="heading"><span class="caption-text">Method</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Background.html">Method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Background.html#schematic-overview">Schematic overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Background.html">Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Background.html#schematic-overview">Schematic Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pypi">Pypi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#github-source">Github source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-methods">Installation Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypi-installation">PyPI Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#github-installation">GitHub Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-installation">Development Installation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#uninstalling">Uninstalling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#remove-installation">Remove installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verification">Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uninstallation">Uninstallation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Input/Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tutorials.html#plot">Plot</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Examples.html">Comparison high dimensional embedding: PCA vs tSNE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Examples.html#comparison-2d-embeddings-pca-vs-tsne">Comparison 2D embeddings: PCA vs tSNE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Examples.html#comparison-random-data-vs-t-sne">Comparison Random data vs. t-SNE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Examples.html#scatterplots">Scatterplots</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html">Sponsor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#medium-blog">Medium Blog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#github">Github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Documentation.html#citing">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Coding%20quality.html">Coding quality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flameplot.flameplot.html">API References</a></li>
 </ul>
 
     <a href= "genindex.html">Index</a>
@@ -91,15 +83,15 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">flameplot</a>
+          <a href="index.html">KNRscore</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/Installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,34 +102,106 @@
            <div itemprop="articleBody">
              
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
-<section id="pypi">
-<h2>Pypi<a class="headerlink" href="#pypi" title="Permalink to this heading"></a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Install from Pypi:
-<span class="go">pip install flameplot</span>
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<section id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading"></a></h2>
+<p>KNRscore requires:
+- Python 3.7 or higher
+- pip (Python package installer)
+- Basic scientific computing packages (numpy, scipy)
+- Visualization packages (matplotlib)</p>
+</section>
+<section id="installation-methods">
+<h2>Installation Methods<a class="headerlink" href="#installation-methods" title="Link to this heading"></a></h2>
+<section id="pypi-installation">
+<h3>PyPI Installation<a class="headerlink" href="#pypi-installation" title="Link to this heading"></a></h3>
+<p>The recommended way to install KNRscore is through PyPI:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Install<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>stable<span class="w"> </span>version
+<span class="go">pip install KNRscore</span>
 
-<span class="gp"># </span>Force update to latest version
-<span class="go">pip install -U flameplot</span>
+<span class="gp"># </span>Force<span class="w"> </span>update<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>version
+<span class="go">pip install -U KNRscore</span>
+
+<span class="gp"># </span>Install<span class="w"> </span>with<span class="w"> </span>specific<span class="w"> </span>version
+<span class="go">pip install KNRscore==1.0.0</span>
 </pre></div>
 </div>
 </section>
-<section id="github-source">
-<h2>Github source<a class="headerlink" href="#github-source" title="Permalink to this heading"></a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Install directly from github
-<span class="go">pip install git+https://github.com/erdogant/flameplot</span>
+<section id="github-installation">
+<h3>GitHub Installation<a class="headerlink" href="#github-installation" title="Link to this heading"></a></h3>
+<p>To install the latest development version directly from GitHub:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Install<span class="w"> </span>from<span class="w"> </span>GitHub
+<span class="go">pip install git+https://github.com/erdogant/KNRscore</span>
+
+<span class="gp"># </span>Install<span class="w"> </span>specific<span class="w"> </span>branch
+<span class="go">pip install git+https://github.com/erdogant/KNRscore@develop</span>
+</pre></div>
+</div>
+</section>
+<section id="development-installation">
+<h3>Development Installation<a class="headerlink" href="#development-installation" title="Link to this heading"></a></h3>
+<p>For developers who want to modify the source code:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Clone<span class="w"> </span>the<span class="w"> </span>repository
+<span class="go">git clone https://github.com/erdogant/KNRscore.git</span>
+<span class="go">cd KNRscore</span>
+
+<span class="gp"># </span>Install<span class="w"> </span><span class="k">in</span><span class="w"> </span>development<span class="w"> </span>mode
+<span class="go">pip install -e .</span>
+
+<span class="gp"># </span>Install<span class="w"> </span>development<span class="w"> </span>dependencies
+<span class="go">pip install -r requirements-dev.txt</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="uninstalling">
-<h1>Uninstalling<a class="headerlink" href="#uninstalling" title="Permalink to this heading"></a></h1>
-<section id="remove-installation">
-<h2>Remove installation<a class="headerlink" href="#remove-installation" title="Permalink to this heading"></a></h2>
-<p>Note that the removal of the environment will also remove the <code class="docutils literal notranslate"><span class="pre">flameplot</span></code> installation.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Install from Pypi:
-<span class="go">pip uninstall flameplot</span>
+<section id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Link to this heading"></a></h2>
+<p>After installation, verify that KNRscore is properly installed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">KNRscore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">knrs</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">knrs</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p>KNRscore depends on the following packages:
+- numpy &gt;= 1.20.0
+- scipy &gt;= 1.7.0
+- matplotlib &gt;= 3.4.0
+- tqdm &gt;= 4.60.0
+- imagesc &gt;= 0.1.0
+- scatterd &gt;= 0.1.0</p>
+<p>These dependencies are automatically installed when installing KNRscore.</p>
+</section>
+<section id="uninstallation">
+<h2>Uninstallation<a class="headerlink" href="#uninstallation" title="Link to this heading"></a></h2>
+<p>To remove KNRscore from your system:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Uninstall<span class="w"> </span>the<span class="w"> </span>package
+<span class="go">pip uninstall KNRscore</span>
+
+<span class="gp"># </span>Remove<span class="w"> </span>all<span class="w"> </span>dependencies<span class="w"> </span><span class="o">(</span>optional<span class="o">)</span>
+<span class="go">pip uninstall numpy scipy matplotlib tqdm imagesc scatterd</span>
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<p>Common installation issues and solutions:</p>
+<ol class="arabic simple">
+<li><p><strong>Permission Errors</strong>
+- Use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">KNRscore</span></code> for user-level installation
+- Or use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">KNRscore</span></code> (not recommended)</p></li>
+<li><p><strong>Version Conflicts</strong>
+- Create a virtual environment: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">knr_env</span></code>
+- Activate it: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">knr_env/bin/activate</span></code> (Linux/Mac) or <code class="docutils literal notranslate"><span class="pre">knr_env\Scripts\activate</span></code> (Windows)
+- Install KNRscore in the virtual environment</p></li>
+<li><p><strong>Missing Dependencies</strong>
+- Install system-level dependencies first
+- Use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></li>
+<li><p><strong>Development Issues</strong>
+- Ensure you have the latest pip: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip</span></code>
+- Install build tools: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">wheel</span> <span class="pre">setuptools</span></code></p></li>
+</ol>
 <hr>
 <center>
         <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
@@ -152,7 +216,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Background.html" class="btn btn-neutral float-left" title="Method" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Background.html" class="btn btn-neutral float-left" title="Methodology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Tutorials.html" class="btn btn-neutral float-right" title="Input/Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

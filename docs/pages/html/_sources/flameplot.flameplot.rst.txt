@@ -2,7 +2,7 @@ API References
 ------------------------------------------------
 
 
-.. automodule:: flameplot.flameplot
+.. automodule:: KNRscore.KNRscore
     :members:
     :undoc-members:
 
