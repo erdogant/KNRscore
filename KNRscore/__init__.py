@@ -50,7 +50,9 @@ Examples
 >>> scores = KNRscore.compare(embed_pca, embed_tsne, n_steps=25)
 >>>
 >>> # plot PCA vs. tSNE
->>> fig = KNRscore.plot(scores, xlabel='PCA', ylabel='tSNE')
+>>> fig, ax = KNRscore.plot(scores, xlabel='PCA', ylabel='tSNE')
+>>> fig, ax = knrs.scatter(embed_tsne[:, 0], embed_tsne[:, 1], labels=y, cmap='Set1', title='tSNE Scatter Plot')
+>>> fig, ax = knrs.scatter(embed_pca[:, 0], embed_pca[:, 1], labels=y, cmap='Set1', title='PCA Scatter Plot')
 >>>
 
 References
