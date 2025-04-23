@@ -13,7 +13,6 @@
 
 **⭐️ Star this repo if you like it ⭐️**
 ## KNRscore - K-Nearest-Rank Similarity
-Quantify local structural similarity between two maps or embeddings.
 
 
 ### Medium Blog
@@ -22,7 +21,7 @@ Also checkout [The Similarity between t-SNE, UMAP, PCA, and Other Mappings](http
 
 #
 
-### [Documentation pages](https://erdogant.github.io/KNRscore/)
+### Documentation pages
 
 On the [documentation pages](https://erdogant.github.io/KNRscore/) you can find detailed information about the working of the ``KNRscore`` with examples. 
 
@@ -63,7 +62,7 @@ pip install KNRscore
 import KNRscore as knrs
 ```
 
-### Functions in KNRscore
+#### Functions in KNRscore
 
 ```python
 import KNRscore as knrs
@@ -72,7 +71,7 @@ fig    = knrs.plot(scores)
 fig    = knrs.scatter(Xcoord,Ycoord)
 
 ```
-### Example
+#### Example
 ```python
     # Imort library
     import KNRscore as knrs
@@ -93,7 +92,7 @@ fig    = knrs.scatter(Xcoord,Ycoord)
     fig, ax = knrs.scatter(embed_pca[:, 0], embed_pca[:, 1], labels=y, cmap='Set1', title='PCA Scatter Plot')
 ```
 
-### Examples
+#### Examples figures
 
 * [Example: Comparison between two maps follow the quantification of local similarity approach.](https://erdogant.github.io/KNRscore/pages/html/Examples.html)
 
@@ -142,7 +141,7 @@ fig    = knrs.scatter(Xcoord,Ycoord)
 
 
 
-## References
+#### References
 * Taskesen, E. et al. Pan-cancer subtyping in a 2D-map shows substructures that are driven by specific combinations of molecular characteristics. Sci. Rep. 6, 24949
 * https://static-content.springer.com/esm/art%3A10.1038%2Fsrep24949/MediaObjects/41598_2016_BFsrep24949_MOESM12_ESM.pdf
 * https://www.nature.com/articles/srep24949
