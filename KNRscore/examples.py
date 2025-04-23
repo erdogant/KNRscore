@@ -1,7 +1,3 @@
-import KNRscore as KNRscore
-from sklearn import (manifold, decomposition)
-import numpy as np
-
 #%%
 import KNRscore as knrs
 
@@ -21,19 +17,15 @@ import KNRscore as KNRscore
 
 # Load mnist example data
 X, y = KNRscore.import_example()
-
 # PCA: 50 PCs
 X_pca_50 = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
-
 # tSNE: 2D
 X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
-
 # Compare PCA(50) vs. tSNE
 scores = KNRscore.compare(X_pca_50, X_tsne, n_steps=25)
 
 # Plot
 fig, ax = KNRscore.plot(scores, xlabel='PCA (50d)', ylabel='tSNE (2d)')
-
 fig, ax = KNRscore.scatter(X_pca_50[:,0], X_pca_50[:,1])
 
 # %%
