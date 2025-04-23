@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 def compare(mapX, mapY, nn=250, n_steps=5, verbose='info'):
     """Comparison of two embeddings.
 
-    Decription
+    Description
     -----------
     Quantification of local similarity across two maps or embeddings, such as PCA and t-SNE.
     To compare the embedding of samples in two different maps using a scale dependent similarity measure.
