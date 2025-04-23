@@ -11,10 +11,10 @@ In the following example we load the mnist dataset and make a PCA and tSNE embed
 	import numpy as np
 
 	# Import library
-	import flameplot as flameplot
+	import KNRscore as KNRscore
 
 	# Load mnist example data
-	X,y = flameplot.import_example()
+	X,y = KNRscore.import_example()
 
 	# PCA: 50 PCs
 	X_pca_50 = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
@@ -23,10 +23,10 @@ In the following example we load the mnist dataset and make a PCA and tSNE embed
 	X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 
 	# Compare PCA(50) vs. tSNE
-	scores = flameplot.compare(X_pca_50, X_tsne, n_steps=5)
+	scores = KNRscore.compare(X_pca_50, X_tsne, n_steps=5)
 
 	# Plot
-	fig, ax = flameplot.plot(scores1, xlabel='PCA (50d)', ylabel='tSNE (2d)')
+	fig, ax = KNRscore.plot(scores1, xlabel='PCA (50d)', ylabel='tSNE (2d)')
 
 
 .. |fig1| image:: ../figs/pca50_tsne.png
@@ -54,10 +54,10 @@ The comparison between the top 2D of PCA vs. 2D tSNE resulted in much lower simi
 	X_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 
 	# Compare PCA(2) vs. tSNE
-	scores = flameplot.compare(X_pca_2, X_tsne, n_steps=5)
+	scores = KNRscore.compare(X_pca_2, X_tsne, n_steps=5)
 
 	# Plot
-	fig, ax = flameplot.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
+	fig, ax = KNRscore.plot(scores, xlabel='PCA (2d)', ylabel='tSNE (2d)')
 
 
 .. |fig2| image:: ../figs/pca2_tsne.png
@@ -82,10 +82,10 @@ The comparison between the Random data points vs. 2D tSNE resulted in low simila
 	X_rand=np.c_[np.random.permutation(X_tsne[:,0]), np.random.permutation(X_tsne[:,1])]
 
 	# Compare random vs. tSNE
-	scores = flameplot.compare(X_rand, X_tsne, n_steps=5)
+	scores = KNRscore.compare(X_rand, X_tsne, n_steps=5)
 
 	# Plot
-	fig, ax = flameplot.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
+	fig, ax = KNRscore.plot(scores, xlabel='Random (2d)', ylabel='tSNE (2d)')
 
 
 
@@ -107,13 +107,13 @@ Scatter plots can also being created:
 .. code:: python
 	
 	# Create scatterplot of PCA
-	fig, ax = flameplot.scatter(X_pca_2[:,0], X_pca_2[:,1], labels=y, title='PCA', density=False)
+	fig, ax = KNRscore.scatter(X_pca_2[:,0], X_pca_2[:,1], labels=y, title='PCA', density=False)
 
 	# Create scatterplot of t-SNE
-	fig, ax = flameplot.scatter(X_tsne[:,0],  X_tsne[:,1],  labels=y, title='tSNE')
+	fig, ax = KNRscore.scatter(X_tsne[:,0],  X_tsne[:,1],  labels=y, title='tSNE')
 
 	# Create scatterplot of the random data
-	fig, ax = flameplot.scatter(X_rand[:,0],  X_rand[:,1],  labels=y, title='Random')
+	fig, ax = KNRscore.scatter(X_rand[:,0],  X_rand[:,1],  labels=y, title='Random')
 
 
 .. |fig4| image:: ../figs/scatter_pca.png

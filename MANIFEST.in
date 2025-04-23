@@ -1,2 +1,2 @@
-include flameplot/data/*.zip
-include flameplot/data/*.txt
+include KNRscore/data/*.zip
+include KNRscore/data/*.txt

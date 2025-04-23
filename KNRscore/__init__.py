@@ -1,4 +1,4 @@
-from flameplot.flameplot import(
+from KNRscore.KNRscore import(
     compare,
     plot,
     import_example,
@@ -11,7 +11,9 @@ __version__ = '1.1.0'
 
 # module level doc-string
 __doc__ = """
-flameplot - Python package for the comparison of high dimensional embeddings using a scale dependent similarity measure.
+KNRscore - A Python package for computing K-Nearest-Rank Similarity, a metric that quantifies local structural similarity between two maps or embeddings.
+
+
 =================================================================================================================================
 
 Decription
@@ -23,23 +25,23 @@ For a pair of maps X and Y, we compare the sets of the, respectively, kx and ky 
 Examples
 --------
 >>> # Load data
->>> X, y = flameplot.import_example()
+>>> X, y = KNRscore.import_example()
 >>>
 >>> # Compute embeddings
 >>> embed_pca = decomposition.TruncatedSVD(n_components=50).fit_transform(X)
 >>> embed_tsne = manifold.TSNE(n_components=2, init='pca').fit_transform(X)
 >>>
 >>> # Compare PCA vs. tSNE
->>> scores = flameplot.compare(embed_pca, embed_tsne, n_steps=25)
+>>> scores = KNRscore.compare(embed_pca, embed_tsne, n_steps=25)
 >>>
 >>> # plot PCA vs. tSNE
->>> fig = flameplot.plot(scores, xlabel='PCA', ylabel='tSNE')
+>>> fig = KNRscore.plot(scores, xlabel='PCA', ylabel='tSNE')
 >>>
 
 References
 ----------
 * Blog: https://towardsdatascience.com/the-similarity-between-t-sne-umap-pca-and-other-mappings-c6453b80f303
-* Github: https://github.com/erdogant/flameplot
-* Documentation: https://erdogant.github.io/flameplot/
+* Github: https://github.com/erdogant/KNRscore
+* Documentation: https://erdogant.github.io/KNRscore/
 
 """

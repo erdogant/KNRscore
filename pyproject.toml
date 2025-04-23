@@ -3,10 +3,10 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "flameplot"
+name = "KNRscore"
 dynamic = ["version"]
 authors = [{ name = "Erdogan Taskesen", email = "erdogant@gmail.com" },]
-description = "flameplot is a python package for the quantification of local similarity across two maps or embeddings."
+description = "KNRScore is a Python package for computing K-Nearest-Rank Similarity, a metric that quantifies local structural similarity between two maps or embeddings."
 readme = "README.md"
 requires-python = ">=3"
 license = { file = "LICENSE" }
@@ -19,12 +19,12 @@ classifiers = [
 dependencies = ['matplotlib','numpy','tqdm','scipy','imagesc','scatterd','requests']
 
 [project.urls]
-Homepage = "https://erdogant.github.io/flameplot"
-Download = "https://github.com/erdogant/flameplot/archive/{version}.tar.gz"
+Homepage = "https://erdogant.github.io/KNRscore"
+Download = "https://github.com/erdogant/KNRscore/archive/{version}.tar.gz"
 
 [tool.setuptools]
-packages = ["flameplot"]
+packages = ["KNRscore"]
 include-package-data = true
 
 [tool.setuptools.dynamic]
-version = { attr = "flameplot.__version__" }
+version = { attr = "KNRscore.__version__" }

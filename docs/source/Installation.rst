@@ -8,10 +8,10 @@ Pypi
 .. code-block:: console
 
     # Install from Pypi:
-    pip install flameplot
+    pip install KNRscore
 
     # Force update to latest version
-    pip install -U flameplot
+    pip install -U KNRscore
 
 
 Github source
@@ -20,7 +20,7 @@ Github source
 .. code-block:: console
 
     # Install directly from github
-    pip install git+https://github.com/erdogant/flameplot
+    pip install git+https://github.com/erdogant/KNRscore
 
 
 Uninstalling
@@ -30,12 +30,12 @@ Uninstalling
 Remove installation
 **********************
 
-Note that the removal of the environment will also remove the ``flameplot`` installation.
+Note that the removal of the environment will also remove the ``KNRscore`` installation.
 
 .. code-block:: console
 
     # Install from Pypi:
-    pip uninstall flameplot
+    pip uninstall KNRscore
 
 
 

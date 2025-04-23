@@ -13,7 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../../'))
-import flameplot
+import KNRscore
 
 currpath = os.path.dirname(__file__)
 sys.path.insert(0, os.path.abspath('./'))
@@ -39,7 +39,7 @@ add_includes_to_rst_files(top=False, bottom=True)
 
 # -- Project information -----------------------------------------------------
 
-project = 'flameplot'
+project = 'KNRscore'
 copyright = '2022, Erdogan Taskesen'
 author = 'Erdogan Taskesen'
 
@@ -47,8 +47,8 @@ author = 'Erdogan Taskesen'
 master_doc = 'index'
 
 # The full version, including alpha/beta/rc tags
-release = 'flameplot'
-version = str(flameplot.__version__)
+release = 'KNRscore'
+version = str(KNRscore.__version__)
 
 # -- General configuration ---------------------------------------------------
 
@@ -79,7 +79,7 @@ napoleon_numpy_docstring = True
 # autodoc_mock_imports = ['cv2','keras']
 
 
-pdf_documents = [('index', u'flameplot', u'flameplot', u'Erdogan Taskesen'),]
+pdf_documents = [('index', u'KNRscore', u'KNRscore', u'Erdogan Taskesen'),]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

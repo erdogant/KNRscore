@@ -17,7 +17,7 @@ keywords:
   - "high-dimensional"
 license: "MIT"
 message: "If you use this software, please cite it using these metadata."
-repository-code: "https://erdogant.github.io/flameplot"
-title: "flameplot is a python package for the quantification of local similarity across two maps or embeddings."
+repository-code: "https://erdogant.github.io/KNRscore"
+title: "KNRScore is a python package to compute the K-Nearest-Rank Similarity for the quantification of local similarities across two maps or embeddings."
 version: "1.0.0"
 ...
