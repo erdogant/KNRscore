@@ -17,7 +17,7 @@
 
 ### Medium Blog
 
-Also checkout [The Similarity between t-SNE, UMAP, PCA, and Other Mappings](https://erdogant.github.io/KNRscore/pages/html/Documentation.html#medium-blog) to get a structured overview and usage of ``KNRscore``.
+Also checkout [Medium Blog](https://erdogant.github.io/KNRscore/pages/html/Documentation.html#medium-blog) to get a structured overview and usage of ``KNRscore``.
 
 #
 
