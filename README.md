@@ -12,7 +12,8 @@
 
 
 **⭐️ Star this repo if you like it ⭐️**
-## KNRscore - K-Nearest-Rank Similarity to quantify local structural similarity between two maps or embeddings.
+## KNRscore - K-Nearest-Rank Similarity
+Quantify local structural similarity between two maps or embeddings.
 
 
 ### Medium Blog
