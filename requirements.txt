@@ -1,7 +1,3 @@
-#conda create -n env_KNRscore python=3.6
-#conda activate env_KNRscore
-#conda install spyder
-
 matplotlib 
 numpy 
 tqdm

@@ -187,7 +187,20 @@ For more advanced usage, consider:
 	perplexities = [5, 30, 50, 100]
 	for p in perplexities:
 		X_tsne = manifold.TSNE(perplexity=p).fit_transform(X)
-		scores = knrs.compare(X_pca, X_tsne)
+		scores = knrs.compare(X_pca, X_tsne, n_steps=10)
+		# Higher score is better
 		print(f"Perplexity {p}: {np.mean(scores['scores']):.3f}")
+
+    # Higher score is better
+    # 100%|██████████| 50/50 [01:47<00:00,  2.15s/it]
+    # Perplexity 5: 0.844
+    # 100%|██████████| 50/50 [01:33<00:00,  1.88s/it]
+    # Perplexity 30: 0.877
+    # 100%|██████████| 50/50 [01:31<00:00,  1.82s/it]
+    # Perplexity 50: 0.885
+    # 100%|██████████| 50/50 [01:17<00:00,  1.55s/it]
+    # Perplexity 100: 0.889
+
+
 
 .. include:: add_bottom.add

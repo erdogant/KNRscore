@@ -252,12 +252,23 @@
 <ol class="arabic simple" start="3">
 <li><p><strong>Parameter Optimization</strong>:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find optimal t-SNE parameters</span>
-<span class="n">perplexities</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perplexities</span><span class="p">:</span>
-        <span class="n">X_tsne</span> <span class="o">=</span> <span class="n">manifold</span><span class="o">.</span><span class="n">TSNE</span><span class="p">(</span><span class="n">perplexity</span><span class="o">=</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">scores</span> <span class="o">=</span> <span class="n">knrs</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">X_tsne</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perplexity </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s1">&#39;scores&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Find optimal t-SNE parameters</span>
+    <span class="n">perplexities</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perplexities</span><span class="p">:</span>
+            <span class="n">X_tsne</span> <span class="o">=</span> <span class="n">manifold</span><span class="o">.</span><span class="n">TSNE</span><span class="p">(</span><span class="n">perplexity</span><span class="o">=</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="n">knrs</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">X_tsne</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="c1"># Higher score is better</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perplexity </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s1">&#39;scores&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Higher score is better</span>
+<span class="c1"># 100%|██████████| 50/50 [01:47&lt;00:00,  2.15s/it]</span>
+<span class="c1"># Perplexity 5: 0.844</span>
+<span class="c1"># 100%|██████████| 50/50 [01:33&lt;00:00,  1.88s/it]</span>
+<span class="c1"># Perplexity 30: 0.877</span>
+<span class="c1"># 100%|██████████| 50/50 [01:31&lt;00:00,  1.82s/it]</span>
+<span class="c1"># Perplexity 50: 0.885</span>
+<span class="c1"># 100%|██████████| 50/50 [01:17&lt;00:00,  1.55s/it]</span>
+<span class="c1"># Perplexity 100: 0.889</span>
 </pre></div>
 </div>
 <hr>
