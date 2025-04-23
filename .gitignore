@@ -8,6 +8,10 @@ KNRscore/data/
 # C extensions
 *.so
 
+# ignore dirs
+libraries/
+.pypirc
+
 # Distribution / packaging
 .pylint.*
 .Python
