@@ -3,7 +3,7 @@ KNRscore Documentation
 
 |python| |pypi| |docs| |stars| |LOC| |downloads_month| |downloads_total| |license| |forks| |open issues| |project status| |medium| |DOI| |repo-size| |donate|
 
-.. image:: ../figs/pca2_tsne.png
+.. image:: ../figs/logo2.png
    :width: 400
    :align: center
    :alt: PCA vs t-SNE Comparison
