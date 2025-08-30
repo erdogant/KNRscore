@@ -30,6 +30,7 @@ jobs:
           # pip install numpy matplotlib pandas scipy sphinx_rtd_theme rst2pdf sphinx pytest irelease sphinxcontrib-fulltoc tabulate
           pip install -r requirements-dev.txt || true
           pip install -r requirements.txt || true
+          pip install imagesc
 
       # 4. Build HTML docs
       - name: Build HTML
