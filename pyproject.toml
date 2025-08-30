@@ -9,12 +9,17 @@ authors = [{ name = "Erdogan Taskesen", email = "erdogant@gmail.com" },]
 description = "KNRScore is a Python package for computing K-Nearest-Rank Similarity, a metric that quantifies local structural similarity between two maps or embeddings."
 readme = "README.md"
 requires-python = ">=3"
-license = { file = "LICENSE" }
-keywords = ["Python", "tsne", "UMAP", "comparison"]
+keywords = ["Python", "tsne", "UMAP", "comparison", "statistical test", "embedding similarity", "embedding comparison"]
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Operating System :: Unix",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = ['matplotlib','numpy','tqdm','scipy','imagesc','scatterd','requests']
 
